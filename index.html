@@ -1,263 +1,153 @@
-<!DOCTYPE html>
-<html lang="en-IN">
+<!doctype html>
+<html lang="hi-IN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Gaya Sewa – Ghar ki sewa, Gaya aur aas-paas</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#f6f4fb;--surface:#fff;--ink:#1a1840;--muted:#5f5d7e;--gold:#e8a317;--gold2:#ffcf5c;--gold-ink:#241a00;--indigo:#2b2a73;--line:#e1def0;--ok:#157a4a;--shadow:0 10px 30px -14px rgba(43,42,115,.35);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0c24;--surface:#17163a;--ink:#f1effc;--muted:#a9a7cc;--indigo:#a9a8ff;--line:#2d2b5c;--ok:#5fd09a;--shadow:0 10px 30px -14px #000}}
-:root[data-theme="dark"]{--bg:#0d0c24;--surface:#17163a;--ink:#f1effc;--muted:#a9a7cc;--indigo:#a9a8ff;--line:#2d2b5c;--ok:#5fd09a;--shadow:0 10px 30px -14px #000}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans","Manrope",system-ui,sans-serif;font-size:16px;line-height:1.55}
-h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:700;margin:0;line-height:1.15;letter-spacing:-.01em}
-.wrap{max-width:980px;margin:0 auto;padding:0 18px}
-.hero{background:radial-gradient(circle at 88% 18%,rgba(255,207,92,.95) 0,rgba(232,163,23,.55) 90px,transparent 91px),linear-gradient(160deg,#1c1a5e,#0f0e33 70%);color:#fff;border-radius:0 0 34px 34px;overflow:hidden;position:relative;padding:22px 0 28px}
-.sky{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none}
-.brand{font-family:"Fraunces",serif;font-weight:700;font-size:1.25rem;color:var(--gold2)}
-.hero h1{font-size:clamp(2.2rem,7vw,3.7rem);max-width:13ch;margin-top:30px;font-weight:700}
-.hero p{color:#cfcdf3;max-width:46ch;margin:14px 0 0;font-size:1.02rem}
-.search{margin-top:22px;max-width:540px;position:relative}
-.search input{padding:15px 18px;border-radius:16px;border:0;font-size:1rem;box-shadow:0 14px 30px -12px rgba(0,0,0,.6);color:#1a1840;background:#fff}
-.where{margin-top:18px}
-.where small{display:block;color:#cfcdf3;margin-bottom:8px;font-weight:600}
-.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
-.chip{flex:none;font:inherit;font-weight:600;font-size:.92rem;padding:8px 16px;border-radius:99px;border:1.5px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;cursor:pointer}
-.chip[aria-pressed="true"]{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--gold-ink);border-color:transparent}
-input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-section{padding:26px 0 6px}
-h2{font-size:1.55rem;margin-bottom:6px}
-.sub{color:var(--muted);margin:0 0 16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:14px}
-.cat{background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:16px;text-align:left;font:inherit;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow)}
-.cat:hover{transform:translateY(-3px);border-color:var(--gold)}
-.cat .e{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;font-size:1.6rem;background:linear-gradient(135deg,rgba(255,207,92,.45),rgba(169,168,255,.25));margin-bottom:8px}
-.cat b{font-weight:700;font-size:1.02rem}
-.cat small{color:var(--muted);font-size:.85rem}
-.hidden{display:none!important}
-.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;margin-bottom:4px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px)}
-.back{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 18px 0 12px;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);color:var(--indigo);font:inherit;font-weight:700;cursor:pointer}
-.back:hover{border-color:var(--gold)}
-.crumb{color:var(--muted);font-size:.85rem;font-weight:600;text-align:right}
-.prov{background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:16px;display:flex;gap:14px;align-items:center;margin-bottom:12px;box-shadow:var(--shadow)}
-.av{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:700;font-size:1.4rem;color:var(--gold-ink);background:linear-gradient(135deg,var(--gold2),var(--gold))}
-.pi{flex:1;min-width:0}
-.prov h3{font-size:1.12rem}
-.prov p{margin:3px 0 0;color:var(--muted);font-size:.9rem}
-.rate{display:inline-block;font-weight:700;font-size:.82rem;background:rgba(232,163,23,.18);color:var(--ink);padding:1px 9px;border-radius:99px;margin-right:6px}
-.price{font-weight:700;color:var(--indigo)}
-.far{font-size:.82rem;color:var(--muted);font-style:italic}
-.btn{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--gold-ink);border:0;border-radius:13px;padding:12px 20px;font:inherit;font-weight:700;cursor:pointer;box-shadow:0 8px 18px -12px rgba(0,0,0,.4)}
-.btn.alt{background:transparent;color:var(--indigo);border:1.5px solid var(--indigo);box-shadow:none}
-form{background:var(--surface);border:1.5px solid var(--line);border-radius:22px;padding:20px;display:grid;gap:14px;max-width:560px;box-shadow:var(--shadow)}
-label{display:grid;gap:6px;font-weight:600;font-size:.92rem}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.note{color:var(--muted);font-size:.88rem;margin:0}
-.done{border-left:6px solid var(--ok);background:var(--surface);border-radius:18px;padding:20px;max-width:560px;margin-top:24px;box-shadow:var(--shadow)}
-.done h3{color:var(--ok);margin-bottom:8px;font-size:1.4rem}
-.bk{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:12px 16px;margin-bottom:10px;display:flex;gap:10px;justify-content:space-between;align-items:center;font-size:.93rem}
-.bk button{background:none;border:0;color:#c0392b;font:inherit;font-weight:600;cursor:pointer}
-.join{margin:26px 0 0;padding:30px 0 10px}
-footer{padding:26px 0 44px;color:var(--muted);font-size:.86rem}
-@media (max-width:480px){.row{grid-template-columns:1fr}.prov{flex-wrap:wrap}.prov .btn{width:100%}}
-.hero{padding-bottom:84px;background:radial-gradient(circle at 86% 22%,#ffd666 0,rgba(255,170,40,.65) 64px,rgba(255,170,40,.12) 150px,transparent 151px),radial-gradient(120% 90% at 0% 0%,#3a2f9e,#1a1840 75%,#0b0a2c 100%)}
-.hero .wrap{position:relative;z-index:1}
-.hero h1{font-weight:600;letter-spacing:-.025em}
-.chip{backdrop-filter:blur(6px);transition:background .15s}
-h2::after{content:"";display:block;width:38px;height:3px;border-radius:3px;margin-top:8px;background:linear-gradient(90deg,var(--gold2),var(--gold))}
-.cat{border-radius:24px;padding:18px 16px;transition:transform .2s,box-shadow .2s,border-color .2s}
-.cat:hover{transform:translateY(-4px);box-shadow:0 18px 36px -16px rgba(43,42,115,.5)}
-.cat .e{width:56px;height:56px;border-radius:18px;margin-bottom:10px;background:linear-gradient(145deg,hsl(var(--h) 90% 58%/.32),hsl(var(--h) 90% 58%/.08));color:hsl(var(--h) 70% 36%)}
-.cat .e svg{width:28px;height:28px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cat .e{color:hsl(var(--h) 90% 76%)}}
-:root[data-theme="dark"] .cat .e{color:hsl(var(--h) 90% 76%)}
-.prov{border-radius:24px;padding:18px 18px 18px 22px;position:relative;overflow:hidden}
-.prov::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--gold2),var(--gold))}
-.av{box-shadow:0 0 0 4px rgba(232,163,23,.2)}
-.btn{border-radius:99px;padding:12px 22px}
-.acts{display:flex;gap:10px}.acts .btn{flex:1}
-.foot{display:grid;gap:6px;background:linear-gradient(160deg,#1b1a5c,#0b0a2c);color:#cfcdf3;padding:24px;border-radius:26px}
-.foot b{font-family:"Fraunces",Georgia,serif;color:var(--gold2);font-size:1.25rem}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102b26">
+  <meta name="description" content="Gaya aur aas-paas ghar aur local services ke liye Gaya Sewa se WhatsApp par sampark karein.">
+  <title>Gaya Sewa | Aapke shehar ki local services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:light;--bg:#f7f8f4;--paper:#fff;--ink:#172a25;--muted:#68776f;--green:#164b3c;--green2:#246b50;--lime:#d8f36a;--line:#e4e9df;--shadow:0 18px 55px rgba(27,54,43,.09);font-family:"DM Sans",system-ui,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55}a{color:inherit}button,input,select,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}.container{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(247,248,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(228,233,223,.85)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:Manrope,sans-serif;font-weight:800;font-size:1.16rem;letter-spacing:-.04em}.brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:var(--green);color:var(--lime);font-weight:800}.nav-links{display:flex;align-items:center;gap:22px}.nav-links a{text-decoration:none;color:var(--muted);font-size:.92rem;font-weight:700}.nav-links a:hover{color:var(--green)}.nav-actions{display:flex;gap:9px;align-items:center}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:10px 17px;border-radius:12px;border:1px solid transparent;text-decoration:none;font-weight:800;cursor:pointer;transition:transform .18s,background .18s}.button:hover{transform:translateY(-2px)}.button-primary{background:var(--green);color:white;box-shadow:0 8px 20px rgba(22,75,60,.16)}.button-primary:hover{background:var(--green2)}.button-light{background:var(--paper);color:var(--green);border-color:var(--line)}.button-lime{background:var(--lime);color:#1b3025}.button-small{min-height:40px;padding:8px 13px;font-size:.88rem}.icon{width:19px;height:19px;flex:none}
+    .hero{position:relative;overflow:hidden;padding:74px 0 70px;background:var(--green);color:white}.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}.hero:before{width:520px;height:520px;right:-130px;top:-260px;background:radial-gradient(circle,rgba(216,243,106,.2),transparent 68%)}.hero:after{width:350px;height:350px;right:13%;bottom:-285px;border:1px solid rgba(255,255,255,.16);box-shadow:0 0 0 36px rgba(255,255,255,.025),0 0 0 72px rgba(255,255,255,.025)}.hero-content{position:relative;z-index:1;max-width:720px}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid rgba(255,255,255,.22);border-radius:99px;color:#e8f4dc;font-size:.85rem;font-weight:700}.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(216,243,106,.15)}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:Manrope,"DM Sans",sans-serif;letter-spacing:-.045em}h1{max-width:760px;margin:22px 0 15px;font-size:clamp(2.6rem,6.6vw,5.25rem);line-height:1.04;font-weight:800}h1 span{color:var(--lime)}.hero-copy{max-width:610px;margin-bottom:26px;color:#d4e2dc;font-size:1.1rem}.hero-actions{display:flex;flex-wrap:wrap;gap:11px}.hero .button-light{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:white}.hero-note{margin-top:22px;color:#bdd0c7;font-size:.86rem}
+    .quick-facts{position:relative;z-index:2;margin-top:-25px}.facts{display:grid;grid-template-columns:repeat(3,1fr);background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}.fact{padding:20px 24px;display:flex;align-items:center;gap:13px}.fact+.fact{border-left:1px solid var(--line)}.fact-icon{width:42px;height:42px;display:grid;place-items:center;flex:none;border-radius:14px;background:#eff5e9;color:var(--green)}.fact strong{display:block;font-size:.97rem}.fact small{color:var(--muted)}
+    section{padding:75px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}.kicker{margin-bottom:8px;color:var(--green2);font-size:.79rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.section-head h2,.contact-copy h2{margin-bottom:7px;font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.12}.section-head p{margin:0;color:var(--muted)}.area-box{display:flex;align-items:center;gap:10px}.area-box label{font-size:.88rem;font-weight:700}.area-box select{min-height:44px;min-width:160px;padding:8px 35px 8px 12px;background:var(--paper);border:1px solid var(--line);border-radius:11px;color:var(--ink)}
+    .search-wrap{position:relative;margin:0 0 20px}.search-wrap svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--muted)}.search{width:100%;height:52px;padding:0 16px 0 46px;border:1px solid var(--line);border-radius:14px;background:var(--paper);outline:none}.search:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(36,107,80,.11)}.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.service-card{display:flex;flex-direction:column;min-height:205px;padding:21px;border:1px solid var(--line);border-radius:18px;background:var(--paper);box-shadow:0 5px 20px rgba(27,54,43,.035);transition:transform .2s,box-shadow .2s,border-color .2s}.service-card:hover{transform:translateY(-4px);border-color:#cbd9c7;box-shadow:var(--shadow)}.service-icon{width:49px;height:49px;display:grid;place-items:center;border-radius:15px;background:#eff5e9;color:var(--green);font-size:1.5rem}.service-card h3{margin:15px 0 4px;font-size:1.17rem;letter-spacing:-.025em}.service-card p{margin:0 0 17px;color:var(--muted);font-size:.92rem}.service-card .button{align-self:flex-start;margin-top:auto}.no-results{padding:24px;color:var(--muted);text-align:center}
+    .how{background:#eef2e9}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{padding:23px;border:1px solid #e0e8d9;border-radius:17px;background:rgba(255,255,255,.72)}.step-number{display:grid;place-items:center;width:37px;height:37px;border-radius:12px;background:var(--green);color:var(--lime);font-weight:800}.step h3{margin:17px 0 5px;font-size:1.08rem;letter-spacing:-.02em}.step p{margin:0;color:var(--muted);font-size:.93rem}
+    .contact-section{padding:70px 0}.contact-panel{position:relative;display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:30px;overflow:hidden;padding:clamp(26px,5vw,52px);border-radius:24px;background:#183f34;color:white}.contact-panel:after{content:"";position:absolute;width:310px;height:310px;right:-130px;top:-150px;border:1px solid rgba(255,255,255,.14);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.025)}.contact-copy,.contact-actions{position:relative;z-index:1}.contact-copy .kicker{color:var(--lime)}.contact-copy h2{max-width:520px}.contact-copy p{margin:0;color:#d0dfd8}.contact-actions{display:grid;gap:11px;justify-items:stretch}.contact-actions .button{width:100%}.contact-number{display:block;margin-top:3px;color:#d0dfd8;text-align:center;font-size:.87rem}
+    .provider{padding-top:0}.provider-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 29px;border:1px solid var(--line);border-radius:18px;background:var(--paper)}.provider-inner h2{margin:0 0 5px;font-size:1.45rem}.provider-inner p{margin:0;color:var(--muted)}.provider-inner .button{flex:none}
+    footer{padding:25px 0 30px;border-top:1px solid var(--line)}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:18px}.footer-brand{font-family:Manrope,sans-serif;font-weight:800}.footer-copy{max-width:650px;margin:0;color:var(--muted);font-size:.82rem;text-align:right}.footer-links{display:flex;gap:14px;margin-top:6px;justify-content:flex-end}.footer-links a{color:var(--green2);font-weight:700;text-decoration:none}.hidden{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}:focus-visible{outline:3px solid #91b936;outline-offset:3px}
+    @media(max-width:800px){.nav-links{display:none}.services-grid{grid-template-columns:repeat(2,1fr)}.contact-panel{grid-template-columns:1fr}.contact-actions{max-width:380px}.facts{grid-template-columns:1fr}.fact+.fact{border-left:0;border-top:1px solid var(--line)}.fact{padding:14px 19px}}
+    @media(max-width:560px){.container{width:min(100% - 30px,1120px)}.nav{height:64px}.nav-actions .button-light{display:none}.hero{padding:57px 0 57px}.hero-copy{font-size:1rem}.hero-actions .button{flex:1}.section-head{align-items:flex-start;flex-direction:column}.area-box{width:100%;justify-content:space-between}.area-box select{flex:1}.services-grid{grid-template-columns:1fr 1fr;gap:10px}.service-card{min-height:207px;padding:15px}.service-card h3{font-size:1rem}.service-card p{font-size:.85rem}.service-card .button{padding-inline:11px;font-size:.82rem}.steps{grid-template-columns:1fr}.section-head h2,.contact-copy h2{font-size:2rem}section{padding:58px 0}.contact-section{padding:10px 0 55px}.provider-inner{align-items:flex-start;flex-direction:column;padding:22px}.footer-row{align-items:flex-start;flex-direction:column}.footer-copy{text-align:left}.footer-links{justify-content:flex-start}.contact-panel{padding:26px 21px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
 </head>
 <body>
-<div class="hero"><svg class="sky" viewBox="0 0 800 130" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="rgba(255,255,255,.1)"><path d="M540 130V86h12l6-26h8l5-24 4-22 4 22 5 24h8l6 26h12v44z"/><path d="M210 130V96h12l10-22h36l10 22h12v34z"/><path d="M232 74Q250 28 268 74z"/><rect x="248.5" y="12" width="3" height="22"/></g><path d="M0 130V111q100-14 200 0t200 0 200 0 200 0v19z" fill="rgba(255,255,255,.07)"/><path d="M0 121q50-8 100 0t100 0 100 0 100 0 100 0 100 0 100 0 100 0" fill="none" stroke="rgba(255,207,92,.5)" stroke-width="1.5"/></svg>
-  <div class="brand">Gaya Sewa</div>
-  <h1>Ghar ki har sewa, aapke shehar mein.</h1>
-  <p>Bijli, AC, plumbing se lekar mobile repair tak. Gaya, Sherghati, Imamganj aur Dumaria ke bharosemand kaarigar ek jagah.</p>
-  <div class="search"><input id="q" placeholder="Kya chahiye? jaise bijli, nal, AC, tutor" aria-label="Sewa khojein"></div>
-  <div class="where"><small>Aap kahan hain?</small><div class="chips" id="towns"></div></div>
-</div></div>
-
-<div class="wrap">
-<main>
-<div id="v-home">
-  <section>
-    <h2>Sewa chuniye</h2>
-    <p class="sub" id="hsub"></p>
-    <div class="grid" id="cats"></div>
-    <p class="note" id="nores" hidden>Koi sewa nahi mili. Doosra naam try kijiye, jaise “bijli” ya “nal”.</p>
-  </section>
-  <section id="mine" hidden>
-    <h2>Meri booking requests</h2>
-    <div id="mylist"></div>
-  </section>
-  <section class="join">
-    <h2>Aap kaam karte hain? Hamare saath judiye</h2>
-    <p class="sub">Apna naam aur shehar bhejiye, hum aapko list mein jodenge.</p>
-    <form id="jf">
-      <label>Naam<input name="n" required></label>
-      <div class="row">
-        <label>Kaam<select name="c" id="jc"></select></label>
-        <label>Shehar<select name="w" id="jt"></select></label>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Gaya Sewa home"><span class="brand-mark" aria-hidden="true">GS</span><span>Gaya Sewa</span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="#services">Services</a><a href="#how">Kaise kaam karta hai</a><a href="#contact">Contact</a></nav>
+      <div class="nav-actions">
+        <a class="button button-light button-small" href="tel:+919229255775">Call karein</a>
+        <a class="button button-primary button-small" href="https://wa.me/919229255775" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp par sampark karein">WhatsApp <span aria-hidden="true">↗</span></a>
       </div>
-      <label>Mobile<input name="m" inputmode="tel" pattern="[6-9][0-9]{9}" maxlength="10" required placeholder="10 ank ka number" title="6 se 9 se shuru hone wala 10 ank ka number"></label>
-      <button class="btn" type="submit">Registration request bhejiye</button>
-      <p class="note" id="jmsg" hidden></p>
-    </form>
-  </section>
-</div>
-
-<div id="v-list" class="hidden">
-  <div class="bar"><button class="back" data-back><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Wapas</button><span class="crumb">Kaarigar chuniye (2/3)</span></div>
-  <h2 id="ltitle"></h2>
-  <p class="sub" id="lsub"></p>
-  <div id="plist"></div>
-  <p style="margin-top:6px"><button class="btn alt" data-go="home">Dusri sewa dekhiye</button></p>
-</div>
-
-<div id="v-book" class="hidden">
-  <div class="bar"><button class="back" data-back><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Wapas</button><span class="crumb">Booking details (3/3)</span></div>
-  <h2 id="btitle" style="margin-bottom:14px"></h2>
-  <form id="bf">
-    <div class="row">
-      <label>Aapka naam<input name="n" required autocomplete="name"></label>
-      <label>Mobile<input name="m" inputmode="tel" pattern="[6-9][0-9]{9}" maxlength="10" required autocomplete="tel" placeholder="10 ank"></label>
     </div>
-    <div class="row">
-      <label>Shehar<select name="w" id="bt"></select></label>
-      <label>Mohalla<select name="a" id="area"></select></label>
-    </div>
-    <label>Pata / landmark<input name="l" required placeholder="jaise: mandir ke paas, 2nd floor"></label>
-    <div class="row">
-      <label>Din<input type="date" name="d" id="date" required></label>
-      <label>Samay<select name="t" id="slot"></select></label>
-    </div>
-    <label><span id="xl">Kaam ke baare mein</span><textarea name="x" id="xt" rows="2" placeholder="Kya dikkat hai?"></textarea></label>
-    <div class="acts"><button class="btn alt" type="button" data-back>Wapas</button><button class="btn" type="submit" id="bs">Request banaiye</button></div>
-  </form>
-</div>
+  </header>
 
-<div id="v-done" class="hidden">
-  <div class="done">
-    <h3>Request taiyar hai</h3>
-    <p id="dtxt"></p>
-    <p class="note">Yeh prototype hai: abhi kaarigar ko message apne aap nahi jaata. Neeche se WhatsApp par bhej dijiye.</p>
-    <p><a class="btn" id="wa" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">WhatsApp par bhejiye</a>
-    <button class="btn alt" data-go="home">Home</button></p>
-  </div>
-</div>
-</main>
-<footer><div class="foot"><b>Gaya Sewa</b><span>Gaya, Bodh Gaya, Sherghati, Imamganj aur Dumaria. Dikhaye gaye kaarigar, rating aur daam namoone ke liye hain.</span></div></footer>
-</div>
+  <main id="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Gaya aur aas-paas ke liye local services</span>
+        <h1 id="hero-title">Ghar ka kaam? <span>Gaya Sewa</span> se baat karein.</h1>
+        <p class="hero-copy">Electrician, plumber, AC repair, safai aur doosri local services ke liye apni request seedhe WhatsApp par bhejiye.</p>
+        <div class="hero-actions">
+          <a class="button button-lime" href="#services">Services dekhein <span aria-hidden="true">↓</span></a>
+          <a class="button button-light" href="https://wa.me/919229255775?text=Namaste%2C%20mujhe%20Gaya%20Sewa%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener noreferrer">WhatsApp par baat karein <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="hero-note">Aapki request WhatsApp mein khulegi. Message bhejne se pehle aap use check kar sakte hain.</p>
+      </div>
+    </section>
 
-<script>
-const TOWNS={g:["Gaya","Civil Lines|Station Road|Sahebganj|Manpur|Delha|Vishnupad ke paas|Anya"],b:["Bodh Gaya","Mahabodhi ke paas|Bodh Gaya Bazar|Anya"],s:["Sherghati","Sherghati Bazar|Station ke paas|G.T. Road|Anya"],i:["Imamganj","Imamganj Bazar|Bus stand ke paas|Anya"],d:["Dumaria","Dumaria Bazar|Block ke paas|Anya"]};
-const SLOTS=[["Subah 9–12",12],["Dopahar 12–3",15],["Shaam 3–7",19]];
-const CATS=[
- {id:"elec",e:"💡",n:"Electrician",s:"Wiring, fan, switch",k:"bijli light pankha bulb mistri wiring",p:[["Ramesh Prasad",4.8,"₹199 se","Civil Lines, Station Road","gb"],["Sunil Kumar",4.6,"₹149 se","Manpur, Delha","g"],["Imamganj Electric Works",4.5,"₹179 se","Imamganj, Dumaria","id"]]},
- {id:"ac",e:"❄️",n:"AC repair",s:"Service, gas, install",k:"cooler fridge air conditioner gas thanda",p:[["Cool Point Gaya",4.7,"₹499 se","Sahebganj","gb"],["Md. Irfan",4.5,"₹399 se","Civil Lines","gs"],["Sherghati Cooling",4.4,"₹449 se","Sherghati, Imamganj","si"]]},
- {id:"plumb",e:"🚰",n:"Plumber",s:"Nal, tanki, pipe",k:"nal paani tanki pipe bathroom tonti leakage",p:[["Dinesh Mistri",4.6,"₹199 se","Delha, Manpur","g"],["Anil Sharma",4.4,"₹149 se","Station Road","gb"],["Imamganj Plumbing",4.3,"₹169 se","Imamganj, Dumaria","id"]]},
- {id:"clean",e:"🧹",n:"Ghar ki safai",s:"Deep clean, sofa, tanki",k:"safai cleaning jhadu sofa tanki",p:[["Shine Team",4.7,"₹899 se","Gaya aur Bodh Gaya","gb"],["Sparkle Home Care",4.4,"₹799 se","Sherghati, Imamganj","si"]]},
- {id:"carp",e:"🪚",n:"Carpenter",s:"Furniture, darwaza, repair",k:"badhai lakdi almari khidki darwaza furniture mistri",p:[["Lakhan Mistri",4.6,"₹400/din se","Manpur, Delha","g"],["Wood Craft Gaya",4.7,"₹500/din se","Civil Lines, Station Road","gb"],["Sherghati Furniture House",4.5,"₹400/din se","Sherghati","s"]]},
- {id:"ro",e:"💧",n:"RO / Water purifier",s:"Service, filter, install",k:"pani filter purifier aquaguard kent",p:[["Pure Water Care",4.6,"₹299 se","Gaya, Bodh Gaya, Sherghati","gbs"],["Santosh RO Service",4.4,"₹249 se","Sahebganj, Imamganj","gi"]]},
- {id:"tutor",e:"📚",n:"Home tutor",s:"Class 1–12, coaching",k:"padhai teacher tuition sir madam coaching",p:[["Amit Sir (Maths)",4.9,"₹300/ghanta","Manpur, Civil Lines","g"],["Neha Madam (Science)",4.7,"₹250/ghanta","Delha","g"],["Rakesh Sir (Class 10)",4.6,"₹200/ghanta","Sherghati","s"]]},
- {id:"paint",e:"🎨",n:"Painter",s:"Rang, putty, repair",k:"rang paint putty pop wall deewar",p:[["Raju Painter",4.5,"₹14/sq ft se","Gaya, Sherghati, Imamganj","gsi"],["Dumaria Rang Ghar",4.3,"₹12/sq ft se","Dumaria, Imamganj","di"]]},
- {id:"mob",e:"📱",n:"Mobile / Laptop repair",s:"Screen, battery, software",k:"phone computer screen battery charger",p:[["Digital Fix Gaya",4.7,"₹199 se","Station Road, Civil Lines","gb"],["Mobile Doctor",4.5,"₹149 se","Delha, Sherghati","gs"],["Imamganj Mobile Hub",4.4,"₹129 se","Imamganj, Dumaria","id"]]},
- {id:"taxi",e:"🚕",n:"Taxi / Driver",s:"Bodh Gaya, Rajgir, station",k:"gadi car cab driver yatra safar",p:[["Magadh Cabs",4.7,"₹12/km se","Gaya, Sherghati, Imamganj","gbsi"],["Bodh Gaya Tours",4.8,"₹2200 (full day)","Bodh Gaya Road","gb"],["Sherghati Travels",4.4,"₹11/km se","Sherghati, Dumaria","sd"]]},
- {id:"hall",e:"🏛️",n:"Banquet / Marriage hall",s:"Shaadi, reception, tilak",k:"shadi vivah wedding hall lawn marriage party function tilak reception bhawan",cta:"Date check kijiye",xl:"Kaun sa function aur kitne mehman?",ph:"jaise: shaadi, 400 mehman",bs:"Hall request banaiye",p:[["Shubh Vivah Banquet",4.7,"₹75,000/din se","Civil Lines, Gaya","g"],["Gaya Garden Lawn",4.5,"₹45,000/din se","Manpur, Bodh Gaya Road","gb"],["Sherghati Marriage Hall",4.4,"₹35,000/din se","Sherghati Bazar","s"]]},
- {id:"bridal",e:"💄",n:"Bridal makeup & mehndi",s:"Dulhan, mehndi, parlour",k:"shaadi dulhan beauty parlour mehndi makeup artist salon bride",cta:"Slot dekhiye",xl:"Kya chahiye?",ph:"jaise: dulhan makeup, mehndi 2 haath",p:[["Rupa Bridal Studio",4.8,"₹8,000 se","Station Road, Bodh Gaya","gb"],["Mehndi by Pooja",4.6,"₹500 se","Gaya, Sherghati, Imamganj","gsi"],["Glow Bridal Parlour",4.5,"₹6,000 se","Sherghati","s"]]},
- {id:"doc",e:"🩺",n:"Doctor appointment",s:"Physician, bachcha, dant",k:"daktar dr clinic ilaaj bimaar medical bukhar physician child dentist skin",cta:"Appointment lijiye",xl:"Mota-mota kya takleef hai?",ph:"jaise: bukhar, dant dard",bs:"Appointment request banaiye",warn:"Namoona data. Emergency mein seedha 112 par call kijiyega ya najdiki aspatal jayiye. Yeh sirf appointment request hai, ilaaj ya salaha nahi.",p:[["Dr. A. Kumar (Physician)",4.7,"₹300 fees","Station Road clinic","g"],["Dr. S. Priya (Bachcha rog)",4.8,"₹400 fees","Civil Lines clinic","gb"],["Dr. R. Singh (Dent)",4.5,"₹250 fees","Sherghati","s"]]} 
-];
-const IC={elec:"M13 2 4 14h7l-1 8 9-12h-7z",ac:"M12 2v20M4.9 7l14.2 10M19.1 7 4.9 17",plumb:"M12 3c3 4.5 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-6.5 6-11z",clean:"M11 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2zM19 19v-6M19 19h-6",carp:"M15 4l5 5-3 3-5-5 3-3zM12 8l4 4M4 16l8-8M9 19l1-1",ro:"M7 3h10l1 9c0 5-4 9-11 9S6 17 6 12l1-9zm3 0v4m4-4v4",tutor:"M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14M8 8h8M8 12h8M8 16h5",paint:"M5 14h14v5H5zm2-8h10v6H7zm1 0V4m8 0v2",mob:"M8 2h8a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm4 18h0",taxi:"M5 16h14l-1.5 5h-11L5 16zm2-8h10l-1 7H8l-1-7zm2-4h6l2 5H7l2-5z",hall:"M3 21h18M5 21V8l7-5 7 5v13M9 12h6",bridal:"M12 2a6 6 0 0 1 6 6c0 4-5 8-6 10-1-2-6-6-6-10a6 6 0 0 1 6-6zm-2 15h4M9 20h6",doc:"M6 3v6a4 4 0 0 0 8 0V3m-2 0v6a2 2 0 1 1-4 0V3"};
-const HUE={elec:45,ac:200,plumb:215,clean:160,carp:25,ro:190,tutor:260,paint:330,mob:235,taxi:50,hall:345,bridal:315,doc:150};
-const ico=id=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${IC[id]}"/></svg>`;
-const $=id=>document.getElementById(id);
-let cur=null,prov=null,town="g";
-try{town=localStorage.getItem("gs-town")||"g"}catch(e){}
-function show(v,fh){["home","list","book","done"].forEach(x=>$("v-"+x).classList.toggle("hidden",x!==v));window.scrollTo(0,0);if(!fh&&location.hash.slice(1)!==v)location.hash=v}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
-function load(){try{return JSON.parse(localStorage.getItem("gs-bk")||"[]")}catch(e){return window.__bk||[]}}
-function save(a){window.__bk=a;try{localStorage.setItem("gs-bk",JSON.stringify(a))}catch(e){}}
-function ymd(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
-function pretty(s){return new Date(s+"T00:00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}
-const opts=o=>o.map(x=>`<option value="${esc(x[0])}">${esc(x[1])}</option>`).join("");
-const townOpts=()=>opts(Object.values(TOWNS).map(t=>[t[0],t[0]]));
-function renderTowns(){
-  $("towns").innerHTML=Object.entries(TOWNS).map(([k,t])=>`<button class="chip" data-t="${k}" aria-pressed="${k===town}">${t[0]}</button>`).join("");
-  $("hsub").textContent=TOWNS[town][0]+" aur aas-paas ke kaarigar";
-}
-function renderCats(f){
-  const t=(f||"").toLowerCase().trim();
-  const l=CATS.filter(c=>!t||(c.n+" "+c.s+" "+c.k).toLowerCase().includes(t));
-  $("cats").innerHTML=l.map(c=>`<button class="cat" data-c="${c.id}"><span class="e" style="--h:${HUE[c.id]}" aria-hidden="true">${ico(c.id)}</span><b>${c.n}</b><small>${c.s}</small></button>`).join("");
-  $("nores").hidden=l.length>0;
-}
-function renderMine(){
-  const b=load();$("mine").hidden=!b.length;
-  $("mylist").innerHTML=b.map((x,i)=>[x,i]).reverse().map(([x,i])=>`<div class="bk"><span><b>${esc(x.svc)}</b> – ${esc(x.prov)}<br>${esc(pretty(x.d))}, ${esc(x.t)} · ${esc(x.w)}, ${esc(x.a)}</span><button data-del="${i}" aria-label="Delete request">Hataiye</button></div>`).join("");
-}
-function card(p,i,far){return `<div class="prov"><div class="av" aria-hidden="true">${esc(p[0][0])}</div><div class="pi"><h3>${esc(p[0])}</h3><p><span class="rate">★ ${p[1]}</span>${esc(p[3])}</p><p class="price">${esc(p[2])}</p>${far?'<div class="far">Aas-paas ke shehar</div>':''}</div><button class="btn" data-p="${i}">${cur.cta||"Book kijiye"}</button></div>`}
-function renderList(){
-  const m=[],o=[];cur.p.forEach((p,i)=>(p[4].includes(town)?m:o).push([p,i]));
-  let h=m.map(([p,i])=>card(p,i,0)).join("");
-  if(!m.length)h+=`<p class="note" style="margin-bottom:12px">${TOWNS[town][0]} mein abhi koi kaarigar nahi hai. Aas-paas ke shehar ke kaarigar neeche hain.</p>`;
-  else if(o.length)h+=`<h3 style="margin:20px 0 10px;font-size:1.05rem">Aas-paas ke shehar se</h3>`;
-  $("plist").innerHTML=h+o.map(([p,i])=>card(p,i,1)).join("");
-  $("ltitle").textContent=cur.n+" – "+TOWNS[town][0];
-  $("lsub").textContent=cur.warn||"Namoona data: rating aur daam dikhane ke liye hain.";
-}
-function setAreas(){const t=Object.values(TOWNS).find(x=>x[0]===$("bt").value);$("area").innerHTML=opts(t[1].split("|").map(a=>[a,a]))}
-function setSlots(){
-  const now=new Date(),isT=$("date").value===ymd(now);let first=null;
-  $("slot").innerHTML=SLOTS.map(([n,end])=>{const dis=isT&&now.getHours()>=end;if(!dis&&!first)first=n;return `<option ${dis?"disabled":""}>${n}</option>`}).join("");
-  if(first)$("slot").value=first;
-}
-$("towns").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;town=b.dataset.t;try{localStorage.setItem("gs-town",town)}catch(x){}renderTowns()});
-$("cats").addEventListener("click",e=>{const b=e.target.closest(".cat");if(!b)return;cur=CATS.find(c=>c.id===b.dataset.c);renderList();show("list")});
-$("plist").addEventListener("click",e=>{
-  const b=e.target.closest("[data-p]");if(!b)return;
-  prov=cur.p[+b.dataset.p];$("btitle").textContent=cur.n+": "+prov[0];
-  $("xl").textContent=cur.xl||"Kaam ke baare mein";$("xt").placeholder=cur.ph||"Kya dikkat hai?";$("bs").textContent=cur.bs||"Request banaiye";
-  $("bt").value=TOWNS[town][0];setAreas();setSlots();show("book");
-});
-$("mylist").addEventListener("click",e=>{const b=e.target.closest("[data-del]");if(!b)return;const a=load();a.splice(+b.dataset.del,1);save(a);renderMine()});
-document.addEventListener("click",e=>{if(e.target.closest("[data-back]")){if(location.hash.slice(1)&&location.hash!=="#home")history.back();else show("home");return}const g=e.target.closest("[data-go]");if(g){if(g.dataset.go==="home"){renderMine();show("home");return}show(g.dataset.go)}});
-window.addEventListener("hashchange",()=>{let v=location.hash.slice(1)||"home";if(v==="done")return;if(!["home","list","book"].includes(v)||(v==="list"&&!cur)||(v==="book"&&!prov))v="home";if(v==="home")renderMine();show(v,true)});
-$("q").addEventListener("input",e=>renderCats(e.target.value));
-$("bt").innerHTML=townOpts();$("jt").innerHTML=townOpts();$("bt").addEventListener("change",setAreas);
-$("jc").innerHTML=opts(CATS.map(c=>[c.n,c.n]));
-const today=ymd(new Date());$("date").min=today;$("date").value=today;$("date").addEventListener("change",setSlots);
-$("bf").addEventListener("submit",e=>{
-  e.preventDefault();
-  const f=Object.fromEntries(new FormData(e.target));
-  save(load().concat({svc:cur.n,prov:prov[0],n:f.n,m:f.m,w:f.w,a:f.a,l:f.l,d:f.d,t:f.t,x:f.x}));
-  const full=`${f.l}, ${f.a}, ${f.w}`;
-  $("dtxt").textContent=`${cur.n} (${prov[0]}) – ${pretty(f.d)}, ${f.t}. ${full}.`;
-  const msg=`Namaste, main ${f.n} (${f.m}). ${cur.n} chahiye: ${pretty(f.d)}, ${f.t}, ${full}. ${f.x||""}`;
-  $("wa").href="https://wa.me/919229255775?text="+encodeURIComponent(msg);
-  e.target.reset();$("date").value=today;setSlots();show("done");
-});
-$("jf").addEventListener("submit",e=>{
-  e.preventDefault();
-  const m=$("jmsg");m.hidden=false;m.textContent="Demo: registration abhi save nahi hota. Asli launch ke baad hum is number par sampark karenge.";
-  e.target.reset();
-});
-renderTowns();renderCats();renderMine();
-</script>
+    <div class="container quick-facts" aria-label="Service details">
+      <div class="facts">
+        <div class="fact"><span class="fact-icon" aria-hidden="true">⌖</span><span><strong>Gaya region</strong><small>Gaya aur aas-paas ke shehar</small></span></div>
+        <div class="fact"><span class="fact-icon" aria-hidden="true">✆</span><span><strong>Seedha sampark</strong><small>WhatsApp ya phone par baat karein</small></span></div>
+        <div class="fact"><span class="fact-icon" aria-hidden="true">✓</span><span><strong>Pehle details poochhein</strong><small>Kaam aur daam provider se confirm karein</small></span></div>
+      </div>
+    </div>
+
+    <section id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="kicker">Local help, ek jagah</p><h2 id="services-title">Aapko kaunsi sewa chahiye?</h2><p>Service chunein; WhatsApp par request ka draft khul jayega.</p></div>
+          <div class="area-box"><label for="town">Aapka shehar</label><select id="town" aria-label="Apna shehar chunein"><option>Gaya</option><option>Bodh Gaya</option><option>Sherghati</option><option>Imamganj</option><option>Dumaria</option></select></div>
+        </div>
+        <label class="search-wrap"><span class="sr-only">Service search karein</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input class="search" id="search" type="search" placeholder="Service khojein, jaise electrician ya plumber" autocomplete="off"></label>
+        <div class="services-grid" id="service-grid"></div>
+        <p class="no-results hidden" id="no-results">Is naam ki service nahi mili. Doosra search try karein ya WhatsApp par poochhein.</p>
+      </div>
+    </section>
+
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head"><div><p class="kicker">Simple process</p><h2 id="how-title">Request bhejna aasaan hai</h2><p>Booking ke liye teen chhote steps.</p></div></div>
+        <div class="steps">
+          <article class="step"><span class="step-number">01</span><h3>Service chunein</h3><p>List mein apne kaam ki service dhoondhein aur request button dabayein.</p></article>
+          <article class="step"><span class="step-number">02</span><h3>Details WhatsApp par bhejein</h3><p>Message draft mein apna area aur kaam ki zaroori jaankari likhein.</p></article>
+          <article class="step"><span class="step-number">03</span><h3>Availability confirm karein</h3><p>Kaam, timing aur final charges provider se confirm karne ke baad hi aage badhein.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-panel">
+        <div class="contact-copy"><p class="kicker">Humse sampark karein</p><h2 id="contact-title">Apni zaroorat batayein. Humse WhatsApp par baat karein.</h2><p>Service list mein aapko jo chahiye woh nahi mila? Humein apne kaam aur area ke baare mein message bhejein.</p></div>
+        <div class="contact-actions">
+          <a class="button button-lime" href="https://wa.me/919229255775?text=Namaste%2C%20mujhe%20Gaya%20Sewa%20se%20sampark%20karna%20hai." target="_blank" rel="noopener noreferrer">WhatsApp par message karein <span aria-hidden="true">↗</span></a>
+          <a class="button button-light" href="tel:+919229255775">Call karein: +91 92292 55775</a>
+          <span class="contact-number">WhatsApp / phone: +91 92292 55775</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="provider" aria-labelledby="provider-title">
+      <div class="container provider-inner">
+        <div><h2 id="provider-title">Aap service provider hain?</h2><p>Apna naam, kaam aur shehar bhejein—listing ke baare mein humse poochhein.</p></div>
+        <a class="button button-primary" id="provider-link" href="https://wa.me/919229255775" target="_blank" rel="noopener noreferrer">Provider ke taur par sampark karein <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div><a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">GS</span><span>Gaya Sewa</span></a></div>
+      <div class="footer-copy"><p>Yeh website service requests ke liye contact point hai. Provider ki availability, service details aur final price WhatsApp/phone par confirm karein. Website abhi online payment ya automatic booking confirmation nahi karti.</p><div class="footer-links"><a href="tel:+919229255775">Call</a><a href="https://wa.me/919229255775" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div>
+    </div>
+  </footer>
+
+  <script>
+    const WHATSAPP_NUMBER = "919229255775";
+    const services = [
+      {icon:"⚡",name:"Electrician",desc:"Wiring, fan, switch aur ghar ki electrical repair.",keywords:"bijli light pankha bulb wiring"},
+      {icon:"🚰",name:"Plumber",desc:"Nal, pipe, tanki aur bathroom plumbing ke kaam.",keywords:"nal paani pipe tanki bathroom leakage"},
+      {icon:"❄️",name:"AC repair",desc:"AC service, repair aur installation ke liye poochhein.",keywords:"ac air conditioner cooling gas service"},
+      {icon:"🧹",name:"Ghar ki safai",desc:"Ghar, sofa ya water tank cleaning ke baare mein poochhein.",keywords:"safai cleaning jhadu sofa tanki"},
+      {icon:"🪚",name:"Carpenter",desc:"Furniture, darwaza aur lakdi ki repair.",keywords:"badhai lakdi furniture darwaza almari"},
+      {icon:"💧",name:"RO / Water purifier",desc:"Water purifier service, filter aur installation.",keywords:"ro paani filter purifier kent aquaguard"},
+      {icon:"📚",name:"Home tutor",desc:"Ghar par tuition aur padhai ke liye jaankari lein.",keywords:"padhai teacher tuition coaching"},
+      {icon:"🎨",name:"Painter",desc:"Ghar ki painting, putty aur wall repair.",keywords:"rang paint putty wall deewar"},
+      {icon:"📱",name:"Mobile / Laptop repair",desc:"Phone, laptop, screen ya battery repair ke liye poochhein.",keywords:"mobile phone laptop computer screen battery"},
+      {icon:"🚕",name:"Taxi / Driver",desc:"Local travel aur driver availability ke baare mein poochhein.",keywords:"taxi gadi car cab driver yatra"},
+      {icon:"🏛️",name:"Banquet / Marriage hall",desc:"Function date, venue aur availability confirm karein.",keywords:"shaadi wedding hall lawn function reception"},
+      {icon:"💄",name:"Bridal makeup & mehndi",desc:"Makeup artist ya mehndi availability poochhein.",keywords:"dulhan makeup mehndi beauty parlour salon"},
+      {icon:"🩺",name:"Doctor appointment",desc:"Appointment ki jaankari ke liye sampark karein. Emergency mein 112 call karein.",keywords:"doctor clinic physician dentist appointment"}
+    ];
+    const grid = document.getElementById("service-grid");
+    const search = document.getElementById("search");
+    const town = document.getElementById("town");
+    const noResults = document.getElementById("no-results");
+    function makeWhatsAppUrl(message){return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;}
+    function renderServices(){
+      const query = search.value.trim().toLocaleLowerCase("hi-IN");
+      const matching = services.filter(service => `${service.name} ${service.desc} ${service.keywords}`.toLocaleLowerCase("hi-IN").includes(query));
+      grid.innerHTML = matching.map((service,index) => `<article class="service-card"><span class="service-icon" aria-hidden="true">${service.icon}</span><h3>${service.name}</h3><p>${service.desc}</p><a class="button button-light button-small service-link" data-service="${index}" href="#contact">WhatsApp par poochhein <span aria-hidden="true">↗</span></a></article>`).join("");
+      grid.querySelectorAll(".service-link").forEach(link => link.addEventListener("click", event => {
+        event.preventDefault();
+        const service = matching[Number(link.dataset.service)];
+        const message = `Namaste, mujhe ${service.name} ki service chahiye. Mera area/shehar: ${town.value}. Kripya availability aur jaankari batayein.`;
+        window.open(makeWhatsAppUrl(message), "_blank", "noopener,noreferrer");
+      }));
+      noResults.classList.toggle("hidden",matching.length>0);
+    }
+    search.addEventListener("input",renderServices);
+    renderServices();
+    const providerMessage = "Namaste, main Gaya Sewa par service provider ke taur par judne ki jaankari chahta/chahti hoon. Mera naam, kaam aur shehar: ";
+    document.getElementById("provider-link").href = makeWhatsAppUrl(providerMessage);
+  </script>
 </body>
 </html>
