@@ -47,7 +47,7 @@
         <p class="hero-copy">Electrician, plumber, AC repair, safai aur doosri local services ke liye apni request seedhe WhatsApp par bhejiye.</p>
         <div class="hero-actions">
           <a class="button button-lime" href="#services">Services dekhein <span aria-hidden="true">↓</span></a>
-          <a class="button button-light" href="https://wa.me/919229255775?text=Namaste%2C%20mujhe%20Gaya%20Sewa%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener noreferrer">WhatsApp par baat karein <span aria-hidden="true">↗</span></a>
+          <a class="button button-light" href="https://wa.me/919229255775?text=Hi%2C%20mujhe%20Gaya%20Sewa%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener noreferrer">WhatsApp par baat karein <span aria-hidden="true">↗</span></a>
         </div>
         <p class="hero-note">Aapki request WhatsApp mein khulegi. Message bhejne se pehle aap use check kar sakte hain.</p>
       </div>
@@ -88,7 +88,7 @@
       <div class="container contact-panel">
         <div class="contact-copy"><p class="kicker">Humse sampark karein</p><h2 id="contact-title">Apni zaroorat batayein. Humse WhatsApp par baat karein.</h2><p>Service list mein aapko jo chahiye woh nahi mila? Humein apne kaam aur area ke baare mein message bhejein.</p></div>
         <div class="contact-actions">
-          <a class="button button-lime" href="https://wa.me/919229255775?text=Namaste%2C%20mujhe%20Gaya%20Sewa%20se%20sampark%20karna%20hai." target="_blank" rel="noopener noreferrer">WhatsApp par message karein <span aria-hidden="true">↗</span></a>
+          <a class="button button-lime" href="https://wa.me/919229255775?text=Hi%2C%20mujhe%20Gaya%20Sewa%20se%20sampark%20karna%20hai." target="_blank" rel="noopener noreferrer">WhatsApp par message karein <span aria-hidden="true">↗</span></a>
           <a class="button button-light" href="tel:+919229255775">Call karein: +91 92292 55775</a>
           <span class="contact-number">WhatsApp / phone: +91 92292 55775</span>
         </div>
@@ -139,14 +139,14 @@
       grid.querySelectorAll(".service-link").forEach(link => link.addEventListener("click", event => {
         event.preventDefault();
         const service = matching[Number(link.dataset.service)];
-        const message = `Namaste, mujhe ${service.name} ki service chahiye. Mera area/shehar: ${town.value}. Kripya availability aur jaankari batayein.`;
+        const message = `Hi, mujhe ${service.name} ki service chahiye. Mera area/shehar: ${town.value}. Kripya availability aur jaankari batayein.`;
         window.open(makeWhatsAppUrl(message), "_blank", "noopener,noreferrer");
       }));
       noResults.classList.toggle("hidden",matching.length>0);
     }
     search.addEventListener("input",renderServices);
     renderServices();
-    const providerMessage = "Namaste, main Gaya Sewa par service provider ke taur par judne ki jaankari chahta/chahti hoon. Mera naam, kaam aur shehar: ";
+    const providerMessage = "Hi, main Gaya Sewa par service provider ke taur par judne ki jaankari chahta/chahti hoon. Mera naam, kaam aur shehar: ";
     document.getElementById("provider-link").href = makeWhatsAppUrl(providerMessage);
   </script>
 </body>
