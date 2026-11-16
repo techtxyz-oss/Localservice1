@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gaya Sewa – Ghar ki sewa, Gaya aur aas-paas</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4fb;--surface:#fff;--ink:#1a1840;--muted:#5f5d7e;--gold:#e8a317;--gold2:#ffcf5c;--gold-ink:#241a00;--indigo:#2b2a73;--line:#e1def0;--ok:#157a4a;--shadow:0 10px 30px -14px rgba(43,42,115,.35);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0c24;--surface:#17163a;--ink:#f1effc;--muted:#a9a7cc;--indigo:#a9a8ff;--line:#2d2b5c;--ok:#5fd09a;--shadow:0 10px 30px -14px #000}}
+:root[data-theme="dark"]{--bg:#0d0c24;--surface:#17163a;--ink:#f1effc;--muted:#a9a7cc;--indigo:#a9a8ff;--line:#2d2b5c;--ok:#5fd09a;--shadow:0 10px 30px -14px #000}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans","Manrope",system-ui,sans-serif;font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:700;margin:0;line-height:1.15;letter-spacing:-.01em}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+.hero{background:radial-gradient(circle at 88% 18%,rgba(255,207,92,.95) 0,rgba(232,163,23,.55) 90px,transparent 91px),linear-gradient(160deg,#1c1a5e,#0f0e33 70%);color:#fff;border-radius:0 0 34px 34px;padding:22px 0 34px;position:relative;overflow:hidden}
+.sky{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none}
+.brand{font-family:"Fraunces",serif;font-weight:700;font-size:1.25rem;color:var(--gold2)}
+.hero h1{font-size:clamp(2.2rem,7vw,3.7rem);max-width:13ch;margin-top:30px;font-weight:700}
+.hero p{color:#cfcdf3;max-width:46ch;margin:14px 0 0;font-size:1.02rem}
+.search{margin-top:22px;max-width:540px;position:relative}
+.search input{padding:15px 18px;border-radius:16px;border:0;font-size:1rem;box-shadow:0 14px 30px -12px rgba(0,0,0,.6);color:#1a1840;background:#fff}
+.where{margin-top:18px}
+.where small{display:block;color:#cfcdf3;margin-bottom:8px;font-weight:600}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.chip{flex:none;font:inherit;font-weight:600;font-size:.92rem;padding:8px 16px;border-radius:99px;border:1.5px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;cursor:pointer}
+.chip[aria-pressed="true"]{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--gold-ink);border-color:transparent}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+section{padding:26px 0 6px}
+h2{font-size:1.55rem;margin-bottom:6px}
+.sub{color:var(--muted);margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:14px}
+.cat{background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:16px;text-align:left;font:inherit;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.cat:hover{transform:translateY(-3px);border-color:var(--gold)}
+.cat .e{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;font-size:1.6rem;background:linear-gradient(135deg,rgba(255,207,92,.45),rgba(169,168,255,.25));margin-bottom:8px}
+.cat b{font-weight:700;font-size:1.02rem}
+.cat small{color:var(--muted);font-size:.85rem}
+.hidden{display:none!important}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;margin-bottom:4px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px)}
+.back{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 18px 0 12px;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);color:var(--indigo);font:inherit;font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+.back:hover{border-color:var(--gold)}
+.crumb{color:var(--muted);font-size:.85rem;font-weight:600;text-align:right}
+.prov{background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:16px;display:flex;gap:14px;align-items:center;margin-bottom:12px;box-shadow:var(--shadow)}
+.av{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:700;font-size:1.4rem;color:var(--gold-ink);background:linear-gradient(135deg,var(--gold2),var(--gold))}
+.pi{flex:1;min-width:0}
+.prov h3{font-size:1.12rem}
+.prov p{margin:3px 0 0;color:var(--muted);font-size:.9rem}
+.rate{display:inline-block;font-weight:700;font-size:.82rem;background:rgba(232,163,23,.18);color:var(--ink);padding:1px 9px;border-radius:99px;margin-right:6px}
+.price{font-weight:700;color:var(--indigo)}
+.far{font-size:.82rem;color:var(--muted);font-style:italic}
+.btn{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--gold-ink);border:0;border-radius:13px;padding:12px 20px;font:inherit;font-weight:700;cursor:pointer;box-shadow:0 8px 18px -10px var(--gold)}
+.btn.alt{background:transparent;color:var(--indigo);border:1.5px solid var(--indigo);box-shadow:none}
+form{background:var(--surface);border:1.5px solid var(--line);border-radius:22px;padding:20px;display:grid;gap:14px;max-width:560px;box-shadow:var(--shadow)}
+label{display:grid;gap:6px;font-weight:600;font-size:.92rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.note{color:var(--muted);font-size:.88rem;margin:0}
+.done{border-left:6px solid var(--ok);background:var(--surface);border-radius:18px;padding:20px;max-width:560px;margin-top:24px;box-shadow:var(--shadow)}
+.done h3{color:var(--ok);margin-bottom:8px;font-size:1.4rem}
+.bk{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:12px 16px;margin-bottom:10px;display:flex;gap:10px;justify-content:space-between;align-items:center;font-size:.93rem}
+.bk button{background:none;border:0;color:#c0392b;font:inherit;font-weight:600;cursor:pointer}
+.join{margin:26px 0 0;padding:30px 0 10px}
+footer{padding:26px 0 44px;color:var(--muted);font-size:.86rem}
+@media (max-width:480px){.row{grid-template-columns:1fr}.prov{flex-wrap:wrap}.prov .btn{width:100%}}
+.hero{padding-bottom:84px;background:radial-gradient(circle at 86% 22%,#ffd666 0,rgba(255,170,40,.65) 64px,rgba(255,170,40,.12) 150px,transparent 151px),radial-gradient(120% 90% at 0% 0%,#3a2f9e,transparent 60%),linear-gradient(165deg,#1b1a5c,#0b0a2c 75%)}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-weight:600;letter-spacing:-.025em}
+.chip{backdrop-filter:blur(6px);transition:background .15s}
+h2::after{content:"";display:block;width:38px;height:3px;border-radius:3px;margin-top:8px;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+.cat{border-radius:24px;padding:18px 16px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.cat:hover{transform:translateY(-4px);box-shadow:0 18px 36px -16px rgba(43,42,115,.5)}
+.cat .e{width:56px;height:56px;border-radius:18px;margin-bottom:10px;background:linear-gradient(145deg,hsl(var(--h) 90% 58%/.32),hsl(var(--h) 90% 58%/.08));color:hsl(var(--h) 70% 36%)}
+.cat .e svg{width:28px;height:28px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cat .e{color:hsl(var(--h) 90% 76%)}}
+:root[data-theme="dark"] .cat .e{color:hsl(var(--h) 90% 76%)}
+.prov{border-radius:24px;padding:18px 18px 18px 22px;position:relative;overflow:hidden}
+.prov::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--gold2),var(--gold))}
+.av{box-shadow:0 0 0 4px rgba(232,163,23,.2)}
+.btn{border-radius:99px;padding:12px 22px}
+.acts{display:flex;gap:10px}.acts .btn{flex:1}
+.foot{display:grid;gap:6px;background:linear-gradient(160deg,#1b1a5c,#0b0a2c);color:#cfcdf3;padding:24px;border-radius:26px}
+.foot b{font-family:"Fraunces",Georgia,serif;color:var(--gold2);font-size:1.25rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="hero"><svg class="sky" viewBox="0 0 800 130" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="rgba(255,255,255,.1)"><path d="M540 130V86h12l6-26h8l5-24 4-22 4 22 5 24h8l6 26h12v44z"/><path d="M210 130V96h12l10-22h36l10 22h12v34z"/><path d="M232 74Q250 28 268 74z"/><rect x="248.5" y="12" width="3" height="22"/></g><path d="M0 130V110q100-14 200 0t200 0 200 0 200 0V130z" fill="rgba(255,255,255,.07)"/><path d="M0 121q50-8 100 0t100 0 100 0 100 0 100 0 100 0 100 0 100 0" fill="none" stroke="rgba(255,207,92,.5)" stroke-width="1.5"/></svg><div class="wrap">
+  <div class="brand">Gaya Sewa</div>
+  <h1>Ghar ki har sewa, aapke shehar mein.</h1>
+  <p>Bijli, AC, plumbing se lekar mobile repair tak. Gaya, Sherghati, Imamganj aur Dumaria ke bharosemand kaarigar ek jagah.</p>
+  <div class="search"><input id="q" placeholder="Kya chahiye? jaise bijli, nal, AC, tutor" aria-label="Sewa khojein"></div>
+  <div class="where"><small>Aap kahan hain?</small><div class="chips" id="towns"></div></div>
+</div></div>
+
+<div class="wrap">
+<main>
+<div id="v-home">
+  <section>
+    <h2>Sewa chuniye</h2>
+    <p class="sub" id="hsub"></p>
+    <div class="grid" id="cats"></div>
+    <p class="note" id="nores" hidden>Koi sewa nahi mili. Doosra naam try kijiye, jaise “bijli” ya “nal”.</p>
+  </section>
+  <section id="mine" hidden>
+    <h2>Meri booking requests</h2>
+    <div id="mylist"></div>
+  </section>
+  <section class="join">
+    <h2>Aap kaam karte hain? Hamare saath judiye</h2>
+    <p class="sub">Apna naam aur shehar bhejiye, hum aapko list mein jodenge.</p>
+    <form id="jf">
+      <label>Naam<input name="n" required></label>
+      <div class="row">
+        <label>Kaam<select name="c" id="jc"></select></label>
+        <label>Shehar<select name="w" id="jt"></select></label>
+      </div>
+      <label>Mobile<input name="m" inputmode="tel" pattern="[6-9][0-9]{9}" maxlength="10" required placeholder="10 ank ka number" title="6 se 9 se shuru hone wala 10 ank ka number"></label>
+      <button class="btn" type="submit">Registration request bhejiye</button>
+      <p class="note" id="jmsg" hidden></p>
+    </form>
+  </section>
+</div>
+
+<div id="v-list" class="hidden">
+  <div class="bar"><button class="back" data-back><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Wapas</button><span class="crumb">Kaarigar chuniye (2/3)</span></div>
+  <h2 id="ltitle"></h2>
+  <p class="sub" id="lsub"></p>
+  <div id="plist"></div>
+  <p style="margin-top:6px"><button class="btn alt" data-go="home">Dusri sewa dekhiye</button></p>
+</div>
+
+<div id="v-book" class="hidden">
+  <div class="bar"><button class="back" data-back><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Wapas</button><span class="crumb">Booking details (3/3)</span></div>
+  <h2 id="btitle" style="margin-bottom:14px"></h2>
+  <form id="bf">
+    <div class="row">
+      <label>Aapka naam<input name="n" required autocomplete="name"></label>
+      <label>Mobile<input name="m" inputmode="tel" pattern="[6-9][0-9]{9}" maxlength="10" required autocomplete="tel" placeholder="10 ank"></label>
+    </div>
+    <div class="row">
+      <label>Shehar<select name="w" id="bt"></select></label>
+      <label>Mohalla<select name="a" id="area"></select></label>
+    </div>
+    <label>Pata / landmark<input name="l" required placeholder="jaise: mandir ke paas, 2nd floor"></label>
+    <div class="row">
+      <label>Din<input type="date" name="d" id="date" required></label>
+      <label>Samay<select name="t" id="slot"></select></label>
+    </div>
+    <label><span id="xl">Kaam ke baare mein</span><textarea name="x" id="xt" rows="2" placeholder="Kya dikkat hai?"></textarea></label>
+    <div class="acts"><button class="btn alt" type="button" data-back>Wapas</button><button class="btn" type="submit" id="bs">Request banaiye</button></div>
+  </form>
+</div>
+
+<div id="v-done" class="hidden">
+  <div class="done">
+    <h3>Request taiyar hai</h3>
+    <p id="dtxt"></p>
+    <p class="note">Yeh prototype hai: abhi kaarigar ko message apne aap nahi jaata. Neeche se WhatsApp par bhej dijiye.</p>
+    <p><a class="btn" id="wa" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">WhatsApp par bhejiye</a>
+    <button class="btn alt" data-go="home">Home</button></p>
+  </div>
+</div>
+</main>
+<footer><div class="foot"><b>Gaya Sewa</b><span>Gaya, Bodh Gaya, Sherghati, Imamganj aur Dumaria. Dikhaye gaye kaarigar, rating aur daam namoone ke liye hain.</span></div></footer>
+</div>
+
+<script>
+const TOWNS={g:["Gaya","Civil Lines|Station Road|Sahebganj|Manpur|Delha|Vishnupad ke paas|Anya"],b:["Bodh Gaya","Mahabodhi ke paas|Bodh Gaya Bazar|Anya"],s:["Sherghati","Sherghati Bazar|Station ke paas|GT Road|Anya"],i:["Imamganj","Imamganj Bazar|Bus stand ke paas|Anya"],d:["Dumaria","Dumaria Bazar|Block ke paas|Anya"]};
+const SLOTS=[["Subah 9–12",12],["Dopahar 12–3",15],["Shaam 3–7",19]];
+const CATS=[
+ {id:"elec",e:"💡",n:"Electrician",s:"Wiring, fan, switch",k:"bijli light pankha bulb mistri wiring",p:[["Ramesh Prasad",4.8,"₹199 se","Civil Lines, Station Road","gb"],["Sunil Kumar",4.6,"₹149 se","Manpur, Delha","g"],["Imamganj Electric Works",4.5,"₹179 se","Imamganj, Dumaria","id"],["Pawan Electricals",4.4,"₹159 se","Sherghati Bazar","s"]]},
+ {id:"ac",e:"❄️",n:"AC repair",s:"Service, gas, install",k:"cooler fridge air conditioner gas thanda",p:[["Cool Point Gaya",4.7,"₹499 se","Sahebganj","gb"],["Md. Irfan",4.5,"₹399 se","Civil Lines","gs"],["Sherghati Cooling",4.4,"₹449 se","Sherghati, Imamganj","si"]]},
+ {id:"plumb",e:"🚰",n:"Plumber",s:"Nal, tanki, pipe",k:"nal paani tanki pipe bathroom tonti leakage",p:[["Dinesh Mistri",4.6,"₹199 se","Delha, Manpur","g"],["Anil Sharma",4.4,"₹149 se","Station Road","gb"],["Imamganj Plumbing",4.3,"₹169 se","Imamganj, Dumaria","id"]]},
+ {id:"clean",e:"🧹",n:"Ghar ki safai",s:"Deep clean, sofa, tanki",k:"safai cleaning jhadu sofa tanki",p:[["Shine Team",4.7,"₹899 se","Gaya aur Bodh Gaya","gb"],["Sparkle Home Care",4.4,"₹799 se","Sherghati, Imamganj","si"]]},
+ {id:"carp",e:"🪚",n:"Carpenter",s:"Furniture, darwaza, repair",k:"badhai lakdi almari khidki darwaza furniture mistri",p:[["Lakhan Mistri",4.6,"₹400/din se","Manpur, Delha","g"],["Wood Craft Gaya",4.7,"₹500/din se","Civil Lines, Station Road","gb"],["Sherghati Furniture House",4.5,"₹400/din se","Sherghati","s"],["Dumaria Wood Works",4.3,"₹380/din se","Dumaria, Imamganj","di"]]},
+ {id:"ro",e:"💧",n:"RO / Water purifier",s:"Service, filter, install",k:"pani filter purifier aquaguard kent",p:[["Pure Water Care",4.6,"₹299 se","Gaya, Bodh Gaya, Sherghati","gbs"],["Santosh RO Service",4.4,"₹249 se","Sahebganj, Imamganj","gi"]]},
+ {id:"tutor",e:"📚",n:"Home tutor",s:"Class 1–12, coaching",k:"padhai teacher tuition sir madam coaching",p:[["Amit Sir (Maths)",4.9,"₹300/ghanta","Manpur, Civil Lines","g"],["Neha Madam (Science)",4.7,"₹250/ghanta","Delha","g"],["Rakesh Sir (Class 8–10)",4.6,"₹200/ghanta","Sherghati","s"]]},
+ {id:"paint",e:"🎨",n:"Painter",s:"Rang, putty, repair",k:"rang paint putty pop wall deewar",p:[["Raju Painter",4.5,"₹14/sq ft se","Gaya, Sherghati, Imamganj","gsi"],["Dumaria Rang Ghar",4.3,"₹12/sq ft se","Dumaria, Imamganj","di"]]},
+ {id:"mob",e:"📱",n:"Mobile / Laptop repair",s:"Screen, battery, software",k:"phone computer screen battery charger",p:[["Digital Fix Gaya",4.7,"₹199 se","Station Road, Civil Lines","gb"],["Mobile Doctor",4.5,"₹149 se","Delha, Sherghati","gs"],["Imamganj Mobile Hub",4.4,"₹129 se","Imamganj, Dumaria","id"]]},
+ {id:"taxi",e:"🚕",n:"Taxi / Driver",s:"Bodh Gaya, Rajgir, station",k:"gadi car cab driver yatra safar",p:[["Magadh Cabs",4.7,"₹12/km se","Gaya, Sherghati, Imamganj","gbsi"],["Bodh Gaya Tours",4.8,"₹2200 (full day)","Bodh Gaya Road","gb"],["Sherghati Travels",4.4,"₹11/km se","Sherghati, Dumaria","sd"]]},
+ {id:"hall",e:"🏛️",n:"Banquet / Marriage hall",s:"Shaadi, reception, tilak",k:"shadi vivah wedding hall lawn marriage party function tilak reception bhawan",cta:"Date check kijiye",xl:"Kaun sa function aur kitne mehmaan?",ph:"jaise: shaadi, 400 mehmaan",bs:"Hall request banaiye",p:[["Shubh Vivah Banquet",4.7,"₹75,000/din se","Civil Lines, Gaya","g"],["Gaya Garden Lawn",4.5,"₹45,000/din se","Manpur, Bodh Gaya Road","gb"],["Sherghati Marriage Hall",4.4,"₹35,000/din se","Sherghati Bazar","s"],["Imamganj Vivah Bhawan",4.3,"₹25,000/din se","Imamganj, Dumaria","id"]]},
+ {id:"bridal",e:"💄",n:"Bridal makeup & mehndi",s:"Dulhan, mehndi, parlour",k:"shaadi dulhan beauty parlour mehndi makeup artist salon bride",cta:"Slot dekhiye",xl:"Kya chahiye?",ph:"jaise: dulhan makeup, mehndi 2 haath",p:[["Rupa Bridal Studio",4.8,"₹8,000 se","Station Road, Bodh Gaya","gb"],["Mehndi by Pooja",4.6,"₹500 se","Gaya, Sherghati, Imamganj","gsi"],["Glow Bridal Parlour",4.5,"₹6,000 se","Sherghati","s"],["Sapna Beauty & Mehndi",4.4,"₹400 se","Imamganj, Dumaria","id"]]},
+ {id:"doc",e:"🩺",n:"Doctor appointment",s:"Physician, bachcha, dant",k:"daktar dr clinic ilaaj bimar medical bukhar physician child dentist skin",cta:"Appointment lijiye",xl:"Mota-mota kya takleef hai?",ph:"jaise: bukhar, dant dard",bs:"Appointment request banaiye",warn:"Namoona data. Emergency mein seedha 112 par call kijiye ya najdiki aspatal jaiye. Yeh sirf appointment request hai, ilaaj ya salaah nahi.",p:[["Dr. A. Kumar (Physician)",4.7,"₹300 fees","Station Road clinic","g"],["Dr. S. Priya (Bachcha rog)",4.8,"₹400 fees","Civil Lines clinic","gb"],["Dr. R. Singh (Dant)",4.5,"₹250 fees","Sherghati","s"],["Dr. M. Alam (Physician)",4.4,"₹200 fees","Imamganj Bazar","id"]]}
+];
+const IC={elec:"M13 2 4 14h7l-1 8 9-12h-7z",ac:"M12 2v20M4.9 7l14.2 10M19.1 7 4.9 17",plumb:"M12 3c3 4.5 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-6.5 6-11z",clean:"M11 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2zM19 16l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z",carp:"M15 4l5 5-2 2-5-5zM13 6 4 15l3 3 9-9",ro:"M7 3h10l-1 18H8zM7.5 10h9",tutor:"M4 19V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM9 7h6",paint:"M5 4h12v5H5zM17 6.5h3v5h-8v3M11 14.5v6",mob:"M8 2h8a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM11 18.5h2",taxi:"M5 16v-5l2-5h10l2 5v5M3 16h18M7 19v-3M17 19v-3M8 12h8",hall:"M3 21h18M5 21V10l7-6 7 6v11M9 21v-6a3 3 0 0 1 6 0v6",bridal:"M12 21a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM9 6l1.5-3h3L15 6l-3 3z",doc:"M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-2M20 10a2 2 0 1 1 0 .01"};
+const HUE={elec:45,ac:200,plumb:215,clean:160,carp:25,ro:190,tutor:260,paint:330,mob:235,taxi:50,hall:345,bridal:315,doc:150};
+const ico=id=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${IC[id]}"/></svg>`;
+const $=id=>document.getElementById(id);
+let cur=null,prov=null,town="g";
+try{town=localStorage.getItem("gs-town")||"g"}catch(e){}
+function show(v,fh){["home","list","book","done"].forEach(x=>$("v-"+x).classList.toggle("hidden",x!==v));window.scrollTo(0,0);if(!fh&&location.hash.slice(1)!==v)location.hash=v}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function load(){try{return JSON.parse(localStorage.getItem("gs-bk")||"[]")}catch(e){return window.__bk||[]}}
+function save(a){window.__bk=a;try{localStorage.setItem("gs-bk",JSON.stringify(a))}catch(e){}}
+function ymd(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function pretty(s){return new Date(s+"T00:00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}
+const opts=o=>o.map(x=>`<option value="${esc(x[0])}">${esc(x[1])}</option>`).join("");
+const townOpts=()=>opts(Object.values(TOWNS).map(t=>[t[0],t[0]]));
+function renderTowns(){
+  $("towns").innerHTML=Object.entries(TOWNS).map(([k,t])=>`<button class="chip" data-t="${k}" aria-pressed="${k===town}">${t[0]}</button>`).join("");
+  $("hsub").textContent=TOWNS[town][0]+" aur aas-paas ke kaarigar";
+}
+function renderCats(f){
+  const t=(f||"").toLowerCase().trim();
+  const l=CATS.filter(c=>!t||(c.n+" "+c.s+" "+c.k).toLowerCase().includes(t));
+  $("cats").innerHTML=l.map(c=>`<button class="cat" data-c="${c.id}"><span class="e" style="--h:${HUE[c.id]}" aria-hidden="true">${ico(c.id)}</span><b>${c.n}</b><small>${c.s}</small></button>`).join("");
+  $("nores").hidden=l.length>0;
+}
+function renderMine(){
+  const b=load();$("mine").hidden=!b.length;
+  $("mylist").innerHTML=b.map((x,i)=>[x,i]).reverse().map(([x,i])=>`<div class="bk"><span><b>${esc(x.svc)}</b> – ${esc(x.prov)}<br>${esc(pretty(x.d))}, ${esc(x.t)} · ${esc(x.w)}, ${esc(x.a)}</span><button data-del="${i}" aria-label="Request hatayein">Hatayein</button></div>`).join("");
+}
+function card(p,i,far){return `<div class="prov"><div class="av" aria-hidden="true">${esc(p[0][0])}</div><div class="pi"><h3>${esc(p[0])}</h3><p><span class="rate">★ ${p[1]}</span>${esc(p[3])}</p><span class="price">${esc(p[2])}</span>${far?`<div class="far">Travel charge lag sakta hai</div>`:""}</div><button class="btn" data-p="${i}">${esc(cur.cta||"Book kijiye")}</button></div>`}
+function renderList(){
+  const m=[],o=[];cur.p.forEach((p,i)=>(p[4].includes(town)?m:o).push([p,i]));
+  let h=m.map(([p,i])=>card(p,i,0)).join("");
+  if(!m.length)h+=`<p class="note" style="margin-bottom:12px">${TOWNS[town][0]} mein abhi koi kaarigar nahi hai. Aas-paas ke shehar ke kaarigar neeche hain.</p>`;
+  else if(o.length)h+=`<h3 style="margin:20px 0 10px;font-size:1.05rem">Aas-paas ke shehar se</h3>`;
+  $("plist").innerHTML=h+o.map(([p,i])=>card(p,i,1)).join("");
+  $("ltitle").textContent=cur.n+" – "+TOWNS[town][0];
+  $("lsub").textContent=cur.warn||"Namoona data: rating aur daam dikhane ke liye hain.";
+}
+function setAreas(){const t=Object.values(TOWNS).find(x=>x[0]===$("bt").value);$("area").innerHTML=opts(t[1].split("|").map(a=>[a,a]))}
+function setSlots(){
+  const now=new Date(),isT=$("date").value===ymd(now);let first=null;
+  $("slot").innerHTML=SLOTS.map(([n,end])=>{const dis=isT&&now.getHours()>=end;if(!dis&&!first)first=n;return `<option ${dis?"disabled":""}>${n}</option>`}).join("");
+  if(first)$("slot").value=first;
+}
+$("towns").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;town=b.dataset.t;try{localStorage.setItem("gs-town",town)}catch(x){}renderTowns()});
+$("cats").addEventListener("click",e=>{const b=e.target.closest(".cat");if(!b)return;cur=CATS.find(c=>c.id===b.dataset.c);renderList();show("list")});
+$("plist").addEventListener("click",e=>{
+  const b=e.target.closest("[data-p]");if(!b)return;
+  prov=cur.p[+b.dataset.p];$("btitle").textContent=cur.n+": "+prov[0];
+  $("xl").textContent=cur.xl||"Kaam ke baare mein";$("xt").placeholder=cur.ph||"Kya dikkat hai?";$("bs").textContent=cur.bs||"Request banaiye";
+  $("bt").value=TOWNS[town][0];setAreas();setSlots();show("book");
+});
+$("mylist").addEventListener("click",e=>{const b=e.target.closest("[data-del]");if(!b)return;const a=load();a.splice(+b.dataset.del,1);save(a);renderMine()});
+document.addEventListener("click",e=>{if(e.target.closest("[data-back]")){if(location.hash.slice(1)&&location.hash!=="#home")history.back();else show("home");return}const g=e.target.closest("[data-go]");if(g){if(g.dataset.go==="home")renderMine();show(g.dataset.go)}});
+window.addEventListener("hashchange",()=>{let v=location.hash.slice(1)||"home";if(v==="done")return;if(!["home","list","book"].includes(v)||(v==="list"&&!cur)||(v==="book"&&!prov))v="home";if(v==="home")renderMine();show(v,true)});
+$("q").addEventListener("input",e=>renderCats(e.target.value));
+$("bt").innerHTML=townOpts();$("jt").innerHTML=townOpts();$("bt").addEventListener("change",setAreas);
+$("jc").innerHTML=opts(CATS.map(c=>[c.n,c.n]));
+const today=ymd(new Date());$("date").min=today;$("date").value=today;$("date").addEventListener("change",setSlots);
+$("bf").addEventListener("submit",e=>{
+  e.preventDefault();
+  const f=Object.fromEntries(new FormData(e.target));
+  save(load().concat({svc:cur.n,prov:prov[0],n:f.n,m:f.m,w:f.w,a:f.a,l:f.l,d:f.d,t:f.t,x:f.x}));
+  const full=`${f.l}, ${f.a}, ${f.w}`;
+  $("dtxt").textContent=`${cur.n} (${prov[0]}) – ${pretty(f.d)}, ${f.t}. ${full}.`;
+  const msg=`Namaste, main ${f.n} (${f.m}). ${cur.n} chahiye: ${pretty(f.d)}, ${f.t}, ${full}. ${f.x||""}`;
+  $("wa").href="https://wa.me/?text="+encodeURIComponent(msg);
+  e.target.reset();$("date").value=today;setSlots();show("done");
+});
+$("jf").addEventListener("submit",e=>{
+  e.preventDefault();
+  const m=$("jmsg");m.hidden=false;m.textContent="Demo: registration abhi save nahi hota. Asli launch ke baad hum is number par sampark karenge.";
+  e.target.reset();
+});
+renderTowns();renderCats();renderMine();
+</script>
+</body>
+</html>
