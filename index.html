@@ -135,6 +135,9 @@
       margin: 0 0 8px; font: 800 clamp(1.9rem, 4vw, 2.8rem)/1.12 Manrope, sans-serif;
     }
     .section-head p:last-child { margin: 0; color: var(--muted); }
+    .filter-row {
+      display: flex; align-items: center; justify-content: flex-end; gap: 12px; flex-wrap: wrap;
+    }
     .area-box {
       display: inline-flex; align-items: center; gap: 10px;
       background: white; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px;
@@ -280,6 +283,8 @@
       .providers-head { flex-direction: column; }
       .steps { grid-template-columns: 1fr; }
       .member-grid { grid-template-columns: 1fr; }
+      .filter-row { width: 100%; justify-content: stretch; }
+      .area-box { flex: 1 1 180px; }
     }
     @media (max-width: 560px) {
       .container { width: min(100% - 26px, 1120px); }
@@ -290,6 +295,7 @@
       .hero { padding-top: 52px; }
       .hero-actions { display: grid; grid-template-columns: 1fr; }
       .hero-actions .button { width: 100%; }
+      .filter-row { flex-direction: column; align-items: stretch; }
       .area-box { width: 100%; justify-content: space-between; }
       .warn-note { max-width: 100%; }
       .footer-row { flex-direction: column; align-items: flex-start; }
@@ -369,15 +375,28 @@
             <h2 id="services-title" data-i18n="servicesTitle">What service do you need?</h2>
             <p data-i18n="servicesSub">Choose your town and pick a service to view nearby provider options.</p>
           </div>
-          <div class="area-box">
-            <label for="town" data-i18n="townLabel">Your town</label>
-            <select id="town" aria-label="Choose your town">
-              <option value="Gaya">Gaya</option>
-              <option value="Bodh Gaya">Bodh Gaya</option>
-              <option value="Sherghati">Sherghati</option>
-              <option value="Imamganj">Imamganj</option>
-              <option value="Dumaria">Dumaria</option>
-            </select>
+          <div class="filter-row">
+            <div class="area-box">
+              <label for="town" data-i18n="townLabel">Your town</label>
+              <select id="town" aria-label="Choose your town">
+                <option value="Gaya">Gaya</option>
+                <option value="Bodh Gaya">Bodh Gaya</option>
+                <option value="Sherghati">Sherghati</option>
+                <option value="Imamganj">Imamganj</option>
+                <option value="Dumaria">Dumaria</option>
+              </select>
+            </div>
+            <div class="area-box">
+              <label for="radius" data-i18n="radiusLabel">Service radius</label>
+              <select id="radius" aria-label="Choose service radius">
+                <option value="5">5 km</option>
+                <option value="10">10 km</option>
+                <option value="20">20 km</option>
+                <option value="35">35 km</option>
+                <option value="60">60 km</option>
+                <option value="999">Any</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -467,11 +486,19 @@
   </footer>
 
   <a class="floating-wa" id="floating-wa" href="https://wa.me/919229255775?text=Hi%2C%20I%20need%20help%20from%20Gaya%20Sewa." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Gaya Sewa">
-    <svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor"><path d="M16.04 3C8.86 3 3.02 8.82 3.02 15.98c0 2.28.6 4.5 1.75 6.46L3 29l6.75-1.76a13.1 13.1 0 0 0 6.28 1.6h.01c7.17 0 13.01-5.8 13.01-12.97C29.04 8.82 23.21 3 16.04 3Zm0 2.24c5.95 0 10.78 4.67 10.78 10.74 0 6.08-4.83 10.75-10.78 10.75a10.9 10.9 0 0 1-5.32-1.36L6.3 26.1l.97-3.5a10.42 10.42 0 0 1-1.82-5.62C5.46 9.9 10.11 5.24 16.04 5.24Zm-4.07 6.32c-.05 0-.12 0-.2.01-.18.01-.41.05-.62.35-.2.28-1.12 1.12-1.12 2.73 0 1.62 1.14 3.17 1.32 3.39.18.22 2.15 3.5 5.42 4.64 2.68 1.06 3.22.92 3.8.86.58-.06 1.78-.73 2.03-1.43.25-.7.25-1.28.17-1.4-.07-.11-.26-.18-.53-.31-.27-.13-1.62-.8-1.87-.89-.25-.09-.42-.14-.6.14-.18.27-.7.88-.86 1.06-.16.17-.33.2-.6.07-.27-.13-1.13-.42-2.15-1.33-.8-.72-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.11-.12.27-.3.4-.45.13-.15.17-.26.26-.43.08-.17.04-.32-.02-.45-.06-.13-.57-1.38-.8-1.9-.2-.48-.41-.42-.6-.43-.15-.01-.32-.01-.5-.01Z"></path></svg>
+    <svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor"><path d="M16.04 3C8.86 3 3.02 8.82 3.02 15.98c0 2.28.6 4.5 1.75 6.46L3 29l6.75-1.76a13.1 13.1 0 0 0 6.28 1.6h.01c7.17 0 13.01-5.84 13.01-13.02C29.05 8.82 23.21 3 16.04 3Zm0 23.23c-1.76 0-3.49-.46-5.02-1.33l-.36-.21-4.01 1.05 1.08-3.9-.24-.4a10.1 10.1 0 0 1-1.43-5.29c0-5.59 4.54-10.12 10.13-10.12 2.7 0 5.24 1.05 7.14 2.96A10.06 10.06 0 0 1 26.17 15.9c0 5.58-4.54 10.12-10.13 10.12Zm5.54-7.52c-.3-.15-1.77-.88-2.05-.98-.28-.1-.49-.15-.69.15-.2.3-.77.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.89-.8-1.49-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.69-1.66-.94-2.27-.25-.6-.5-.52-.69-.53-.18-.01-.38-.01-.58-.01a1.12 1.12 0 0 0-.81.38c-.28.3-1.07 1.05-1.07 2.57 0 1.52 1.1 2.98 1.26 3.18.16.2 2.17 3.32 5.27 4.66.74.32 1.32.51 1.77.66.74.24 1.42.2 1.95.12.6-.09 1.77-.72 2.02-1.41.25-.69.25-1.29.18-1.41-.07-.12-.28-.2-.58-.35Z"></path></svg>
   </a>
 
   <script>
     const WHATSAPP_NUMBER = '919229255775';
+    const townDistances = {
+      'Gaya': { Gaya: 0, 'Bodh Gaya': 12, 'Sherghati': 32, 'Imamganj': 27, 'Dumaria': 29 },
+      'Bodh Gaya': { Gaya: 12, 'Bodh Gaya': 0, 'Sherghati': 35, 'Imamganj': 21, 'Dumaria': 30 },
+      'Sherghati': { Gaya: 32, 'Bodh Gaya': 35, 'Sherghati': 0, 'Imamganj': 42, 'Dumaria': 47 },
+      'Imamganj': { Gaya: 27, 'Bodh Gaya': 21, 'Sherghati': 42, 'Imamganj': 0, 'Dumaria': 26 },
+      'Dumaria': { Gaya: 29, 'Bodh Gaya': 30, 'Sherghati': 47, 'Imamganj': 26, 'Dumaria': 0 }
+    };
+
     const translations = {
       en: {
         eyebrow: 'Local services in Gaya and nearby',
@@ -490,6 +517,7 @@
         servicesTitle: 'What service do you need?',
         servicesSub: 'Choose your town and pick a service to view nearby provider options.',
         townLabel: 'Your town',
+        radiusLabel: 'Service radius',
         noResults: 'No matching service found. Try another search or contact us on WhatsApp.',
         providersKicker: 'Nearby options',
         providerNote: 'Demo profiles are examples only. Final prices and availability should be confirmed directly on WhatsApp before booking.',
@@ -514,7 +542,7 @@
       hi: {
         eyebrow: 'गया और आसपास की स्थानीय सेवाएँ',
         heroTitle: 'घर की सेवाएँ अब आसान हैं — <span>Gaya Sewa</span> के साथ।',
-        heroCopy: 'पहचान वाले स्थानीय मददगार खोजें — इलेक्ट्रिशियन, प्लंबर, AC रिपेयर, सफाई, पेंटिंग और अन्य सेवाएँ। WhatsApp पर सीधे अनुरोध भेजें।',
+        heroCopy: 'पहचान वाले स्थानीय मददगार खोजें — इलेक्ट्रिशियन, प्लंबर, AC रिपेयर, सफाई, पेंटिंग और कई अन्य सेवाएँ। WhatsApp पर सीधे अनुरोध भेजें।',
         browse: 'सेवाएँ देखें ↓',
         chatNow: 'अभी चैट करें',
         heroNote: 'WhatsApp में प्रीफिल्ड मैसेज खुलता है, जिसे आप review करके भेज सकते हैं।',
@@ -528,9 +556,10 @@
         servicesTitle: 'आपको कौन-सी सेवा चाहिए?',
         servicesSub: 'अपना शहर चुनें और सेवा का चयन करें, फिर आसपास के विशेषज्ञ देखें।',
         townLabel: 'आपका शहर',
+        radiusLabel: 'सेवा की दूरी',
         noResults: 'कोई मैचिंग सेवा नहीं मिली। दूसरा शब्द खोजें या WhatsApp पर हमसे संपर्क करें।',
         providersKicker: 'पास के विकल्प',
-        providerNote: 'यह डेमो प्रोफ़ाइलें उदाहरण हैं। अंतिम कीमत और उपलब्धता WhatsApp पर सीधे पुष्टि की जानी चाहिए।',
+        providerNote: 'यह डेमो प्रोफ़ाइलें उदाहरण ह���ं। अंतिम कीमत और उपलब्धता WhatsApp पर सीधे पुष्टि करनी चाहिए।',
         howKicker: 'सरल प्रक्रिया',
         howTitle: 'मदद लेना आसान है',
         step1Title: 'सेवा चुनें',
@@ -544,10 +573,10 @@
         providerSub: 'अपना विवरण भरें और WhatsApp पर सीधे भेजें ताकि सूची में शामिल किया जा सके।',
         contactKicker: 'संपर्क करें',
         contactTitle: 'हमें अपनी जरूरत बताइए।',
-        contactCopy: 'हम आपके क्षेत्र के स्थानीय प्रोफेशनल से कनेक्ट करने में मदद कर सकते हैं। WhatsApp पर विवरण भेजें और हम सहायता करेंगे।',
+        contactCopy: 'हम आपके क्षेत्र के स्थानीय प्रोफेशनल से कनेक्ट करने में मदद कर सकते हैं। WhatsApp पर विवरण भेजें, हम सहायता देंगे।',
         contactWhatsApp: 'WhatsApp',
         contactCall: 'कॉल: +91 92292 55775',
-        footerText: 'अंतिम कीमत, उपलब्धता और सेवा विवरण बुकिंग से पहले WhatsApp पर सीधे पुष्टि करना जरूरी है।'
+        footerText: 'अंतिम कीमत, उपलब्धता और सेवा विवरण बुकिंग से पहले WhatsApp पर सीधे पुष्टि करनी होगी।'
       }
     };
 
@@ -723,6 +752,7 @@
     const grid = document.getElementById('service-grid');
     const search = document.getElementById('search');
     const town = document.getElementById('town');
+    const radius = document.getElementById('radius');
     const providerPanel = document.getElementById('provider-panel');
     const providerTitle = document.getElementById('provider-title');
     const listingArea = document.getElementById('listing-area');
@@ -731,6 +761,18 @@
 
     function makeWhatsAppUrl(message) {
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    function getDistanceBetweenTowns(fromTown, toTown) {
+      if (!townDistances[fromTown] || !townDistances[fromTown][toTown]) {
+        return 9999;
+      }
+      return townDistances[fromTown][toTown];
+    }
+
+    function getNearbyProviders(serviceProviders, selectedTown, selectedRadius) {
+      const maxRadius = Number(selectedRadius) || 999;
+      return serviceProviders.filter(provider => getDistanceBetweenTowns(selectedTown, provider.city) <= maxRadius);
     }
 
     function applyLanguage() {
@@ -753,6 +795,7 @@
     function renderServices() {
       const query = search.value.trim().toLowerCase();
       const selectedTown = town.value;
+      const selectedRadius = Number(radius.value) || 999;
       const matching = serviceData.filter(item => {
         const haystack = `${item.name} ${item.hi} ${item.desc} ${item.hiDesc} ${item.keywords}`.toLowerCase();
         return haystack.includes(query);
@@ -765,9 +808,11 @@
       }
 
       noResults.classList.remove('show');
-      grid.innerHTML = matching.map((service, idx) => {
+      grid.innerHTML = matching.map((service) => {
+        const nearbyProviders = getNearbyProviders(service.providers, selectedTown, selectedRadius);
+        const serviceCount = nearbyProviders.length;
+        const displayProvider = nearbyProviders[0] || service.providers[0];
         const serviceName = language === 'hi' ? service.hi : service.name;
-        const serviceCount = service.providers.length;
         return `
           <article class="service-card">
             <div class="top">
@@ -777,10 +822,10 @@
             <h3>${serviceName}</h3>
             <p>${language === 'hi' ? service.hiDesc : service.desc}</p>
             <div class="service-meta">
-              <span>${service.providers[0].city}</span>
-              <span>₹${service.providers[0].price}+ </span>
+              <span>${displayProvider ? displayProvider.city : 'Nearby'}</span>
+              <span>${displayProvider ? '₹' + displayProvider.price + '+' : 'No nearby'}</span>
             </div>
-            <button class="button button-primary service-button" type="button" data-service-index="${serviceData.findIndex(s => s.name === service.name)}">${language === 'hi' ? 'सदस्य देखें' : 'View providers'}</button>
+            <button class="button button-primary service-button" type="button" data-service-index="${serviceData.findIndex(s => s.name === service.name)}">${language === 'hi' ? 'सेवा देखें' : 'View service'}</button>
           </article>
         `;
       }).join('');
@@ -795,11 +840,33 @@
 
     function openProviderList(serviceIndex, selectedTown) {
       const service = serviceData[serviceIndex];
-      const title = language === 'hi' ? `${service.hi} • आपके क्षेत्र में विशेषज्ञ` : `${service.name} • nearby experts`;
-      providerTitle.textContent = title;
-      listingArea.textContent = language === 'hi' ? `चुना हुआ क्षेत्र: ${selectedTown}` : `Selected area: ${selectedTown}`;
+      if (!service) return;
 
-      memberGrid.innerHTML = service.providers.map(provider => {
+      const selectedRadius = Number(radius.value) || 999;
+      const nearbyProviders = getNearbyProviders(service.providers, selectedTown, selectedRadius);
+      const title = language === 'hi'
+        ? `${service.hi} • आपके क्षेत्र में विशेषज्ञ`
+        : `${service.name} • nearby experts`;
+      providerTitle.textContent = title;
+
+      const radiusText = selectedRadius >= 999 ? (language === 'hi' ? 'किसी भी दूरी' : 'any distance') : `${selectedRadius} km`;
+      listingArea.textContent = language === 'hi'
+        ? `चुना हुआ क्षेत्र: ${selectedTown} • ${radiusText} तक`
+        : `Selected area: ${selectedTown} • within ${radiusText}`;
+
+      if (!nearbyProviders.length) {
+        memberGrid.innerHTML = `
+          <div class="no-results show">
+            ${language === 'hi'
+              ? `इस क्षेत्र में ${selectedTown} के ${radiusText} भीतर कोई ${service.hi} प्रोवाइडर उपलब्ध नहीं है। WhatsApp पर सीधे संपर्क करें।`
+              : `No ${service.name} providers are available within ${radiusText} of ${selectedTown}. Contact us directly on WhatsApp.`}
+          </div>
+        `;
+        providerPanel.classList.add('open');
+        return;
+      }
+
+      memberGrid.innerHTML = nearbyProviders.map(provider => {
         const msg = language === 'hi'
           ? `नमस्ते, मुझे ${selectedTown} में ${service.hi} सेवा चाहिए। ${provider.name} के बारे में उपलब्धता, समय और अंतिम कीमत बताइए।`
           : `Hi, I need ${service.name} service in ${selectedTown}. Please confirm ${provider.name}'s availability, timing and final price.`;
@@ -837,10 +904,18 @@
 
     search.addEventListener('input', renderServices);
     town.addEventListener('change', () => {
-      const selectedService = document.querySelector('.service-button');
-      if (!selectedService) return;
-      const serviceIndex = Number(selectedService.dataset.serviceIndex);
-      openProviderList(serviceIndex, town.value);
+      renderServices();
+      const currentSelected = document.querySelector('.service-button');
+      if (currentSelected) {
+        openProviderList(Number(currentSelected.dataset.serviceIndex), town.value);
+      }
+    });
+    radius.addEventListener('change', () => {
+      renderServices();
+      const currentSelected = document.querySelector('.service-button');
+      if (currentSelected) {
+        openProviderList(Number(currentSelected.dataset.serviceIndex), town.value);
+      }
     });
 
     applyLanguage();
