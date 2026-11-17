@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://techtxyz-oss.github.io/Localservice1/</loc>
-  </url>
-  <url>
-    <loc>https://techtxyz-oss.github.io/Localservice1/gaya-blocks.html</loc>
-  </url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/gaya-blocks.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/gaya-sadar.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/belaganj.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/wazirganj.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/manpur.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/bodh-gaya.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/tankuppa.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/fatehpur.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/konch.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/tekari.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/guraru.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/paraiya.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/neemchak-bathani.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/atri.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/bathani.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/mohra.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/sherghati.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/gurua.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/amas.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/banke-bazar.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/imamganj.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/dumariya.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/dobhi.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/mohanpur.html</loc></url>
+  <url><loc>https://techtxyz-oss.github.io/Localservice1/blocks/barachatti.html</loc></url>
 </urlset>
