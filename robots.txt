@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://techtxyz-oss.github.io/Localservice1/sitemap.xml
