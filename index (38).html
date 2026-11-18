@@ -1,0 +1,1424 @@
+<!doctype html>
+<html lang="hi-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102b26">
+  <meta name="description" content="Gaya Sewa helps you find local electricians, plumbers, AC repair, cleaning, painters, tailors, bridal mehndi, tent house, catering, interior designers and more in Gaya and nearby towns.">
+  <title>Gaya Sewa | Local Home Services in Gaya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f8f4;
+      --paper: #ffffff;
+      --ink: #172a25;
+      --muted: #68776f;
+      --green: #164b3c;
+      --green2: #246b50;
+      --lime: #d8f36a;
+      --line: #e4e9df;
+      --shadow: 0 18px 55px rgba(27,54,43,.09);
+      --warn: #fff6d6;
+      --warn-border: #e9d791;
+      --soft: #edf3ed;
+      --danger: #d65252;
+      --chip: #eefaf3;
+      --radius: 18px;
+      font-family: 'DM Sans', system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(247,248,244,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(228,233,223,.85);
+    }
+    .nav {
+      min-height: 72px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      font: 800 1.15rem Manrope, sans-serif;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 38px; height: 38px; border-radius: 12px;
+      display: grid; place-items: center;
+      background: var(--green); color: var(--lime);
+      font-weight: 800;
+    }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 9px; min-height: 44px; padding: 10px 16px;
+      border-radius: 12px; border: 1px solid transparent;
+      text-decoration: none; font-weight: 800; cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .button:hover { transform: translateY(-1px); }
+    .button-primary { background: var(--green); color: white; }
+    .button-light { background: white; border-color: var(--line); color: var(--green); }
+    .button-lime { background: var(--lime); color: var(--ink); }
+    .button-small { min-height: 40px; padding: 8px 14px; }
+    .lang-toggle {
+      background: white; border: 1px solid var(--line); color: var(--green);
+      border-radius: 10px; padding: 8px 11px; font-weight: 800; cursor: pointer;
+    }
+    .hero {
+      position: relative; overflow: hidden; padding: 70px 0 66px; background: var(--green); color: white;
+    }
+    .hero:before, .hero:after {
+      content: ""; position: absolute; border-radius: 50%; pointer-events: none;
+      opacity: .18; background: rgba(255,255,255,.12);
+    }
+    .hero:before { width: 460px; height: 460px; left: -120px; bottom: -150px; }
+    .hero:after { width: 380px; height: 380px; right: -90px; top: -120px; }
+    .hero-content { position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 14px; border-radius: 99px; border: 1px solid rgba(255,255,255,.3);
+      color: #eafaf0; font-weight: 700; background: rgba(255,255,255,.03);
+    }
+    .eyebrow-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--lime);
+      box-shadow: 0 0 0 5px rgba(216,243,106,.18);
+    }
+    .hero h1 {
+      margin: 20px 0 12px; max-width: 760px;
+      font: 800 clamp(2.5rem, 6vw, 4.9rem)/1.05 Manrope, sans-serif;
+      letter-spacing: -0.045em;
+    }
+    .hero h1 span { color: var(--lime); }
+    .hero-copy { margin: 0; max-width: 650px; color: rgba(255,255,255,.85); font-size: 1.08rem; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .hero-note { margin-top: 14px; color: rgba(255,255,255,.72); font-size: .9rem; }
+    .quick-facts { position: relative; z-index: 2; margin-top: -22px; }
+    .facts {
+      display: grid; grid-template-columns: repeat(3, 1fr); background: var(--paper);
+      border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden;
+    }
+    .fact {
+      display: flex; align-items: center; gap: 12px; padding: 18px 20px;
+      border-right: 1px solid var(--line);
+    }
+    .fact:last-child { border-right: none; }
+    .fact-icon {
+      display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px;
+      background: var(--soft); color: var(--green); font-weight: 800;
+    }
+    .fact strong { display: block; }
+    .fact small { display: block; color: var(--muted); }
+    section { padding: 68px 0; }
+    .section-head {
+      display: flex; justify-content: space-between; align-items: end; gap: 20px;
+      margin-bottom: 22px;
+    }
+    .kicker {
+      margin: 0 0 8px; color: var(--green2); font-size: .79rem; font-weight: 800;
+      letter-spacing: .12em; text-transform: uppercase;
+    }
+    h2 {
+      margin: 0 0 8px; font: 800 clamp(1.9rem, 4vw, 2.8rem)/1.12 Manrope, sans-serif;
+    }
+    .section-head p:last-child { margin: 0; color: var(--muted); }
+    .filter-row {
+      display: flex; align-items: center; justify-content: flex-end; gap: 12px; flex-wrap: wrap;
+    }
+    .area-box {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: white; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px;
+      min-width: 220px;
+    }
+    .area-box label { font-weight: 700; }
+    .area-box select {
+      background: transparent; border: none; color: var(--ink); outline: none;
+      min-height: 36px; padding: 0 2px; font-weight: 700;
+    }
+    .search-wrap {
+      position: relative; display: block; margin: 0 0 18px;
+    }
+    .search-wrap svg {
+      position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+      color: var(--muted);
+    }
+    .search {
+      width: 100%; min-height: 52px; padding: 0 16px 0 46px; border-radius: 14px;
+      border: 1px solid var(--line); background: white; color: var(--ink);
+      outline: none;
+    }
+    .search:focus { border-color: var(--green2); box-shadow: 0 0 0 4px rgba(36,107,80,.08); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+    .service-card {
+      background: white; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 20px; box-shadow: 0 5px 20px rgba(18,34,31,.04);
+    }
+    .service-card .top {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px;
+    }
+    .service-icon {
+      width: 52px; height: 52px; display: grid; place-items: center;
+      border-radius: 16px; background: var(--soft); font-size: 1.8rem;
+    }
+    .service-card h3 {
+      margin: 0 0 6px; font-size: 1.08rem;
+    }
+    .service-card p {
+      margin: 0 0 16px; color: var(--muted); min-height: 48px;
+    }
+    .service-meta {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      margin-bottom: 14px; color: var(--muted); font-size: .9rem;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--chip); color: var(--green); border-radius: 999px;
+      padding: 6px 10px; font-weight: 700; font-size: .78rem;
+    }
+    .service-card .button { width: 100%; }
+    .providers {
+      margin-top: 26px; background: #edf5ee; border: 1px solid #dfeee1; border-radius: 20px;
+      padding: 22px; display: none;
+    }
+    .providers.open { display: block; }
+    .providers-head {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px;
+    }
+    .providers-head p { margin: 0; color: var(--muted); }
+    .warn-note {
+      background: var(--warn); border: 1px solid var(--warn-border); color: #5b4d18;
+      border-radius: 12px; padding: 10px 12px; font-size: .88rem; max-width: 420px;
+    }
+    .member-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+    .member-card {
+      background: white; border: 1px solid var(--line); border-radius: 16px; padding: 18px;
+    }
+    .member-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .member-name { margin: 0; font-size: 1.05rem; }
+    .rating {
+      display: inline-flex; align-items: center; gap: 4px; font-weight: 800; color: #f3a018;
+      background: #fff8e9; border: 1px solid #f5e0a9; padding: 5px 8px; border-radius: 999px; font-size: .8rem;
+    }
+    .meta-row {
+      margin-top: 12px; display: flex; flex-wrap: wrap; gap: 7px;
+    }
+    .pill {
+      background: #f5f7f3; border: 1px solid var(--line); color: var(--ink);
+      padding: 6px 8px; border-radius: 999px; font-weight: 700; font-size: .78rem;
+    }
+    .tag-pickup, .tag-urgent { border-width: 1px; border-style: solid; }
+    .tag-pickup { background: #eaf6ee; border-color: #bfe0c9; color: var(--green); }
+    .tag-urgent { background: #fff1ec; border-color: #f6c9b8; color: #c2410c; }
+    .price-box {
+      display: flex; align-items: end; justify-content: space-between; gap: 8px;
+      margin: 14px 0 16px;
+      padding-top: 12px; border-top: 1px solid var(--line);
+    }
+    .amount { font-size: 1.1rem; font-weight: 800; color: var(--green); }
+    .amount small { color: var(--muted); font-weight: 700; font-size: .75rem; }
+    .member-card .button { width: 100%; }
+    .no-results { display: none; margin-top: 16px; padding: 14px 16px; border-radius: 12px; background: white; border: 1px solid var(--line); color: var(--muted); }
+    .no-results.show { display: block; }
+    .how { background: #eef2e9; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .step {
+      background: rgba(255,255,255,.8); border: 1px solid #dfe9dc; border-radius: 18px;
+      padding: 22px; min-height: 180px;
+    }
+    .step-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 12px; background: var(--green); color: white; font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .step h3 { margin: 0 0 6px; }
+    .step p { margin: 0; color: var(--muted); }
+    .contact-panel {
+      position: relative; display: grid; grid-template-columns: 1.2fr .8fr; gap: 22px;
+      overflow: hidden; padding: clamp(25px, 5vw, 46px); border-radius: 22px;
+      background: linear-gradient(135deg, #183f34, #14362d);
+      color: white;
+      box-shadow: 0 16px 32px rgba(7,24,21,.18);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .contact-copy p { margin: 0; color: rgba(255,255,255,.8); }
+    .contact-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .contact-number {
+      color: rgba(255,255,255,.78); font-size: .92rem; font-weight: 700;
+      padding-left: 6px;
+    }
+    footer {
+      padding: 25px 0 30px; border-top: 1px solid var(--line);
+    }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center; gap: 18px;
+    }
+    .footer-copy { color: var(--muted); max-width: 680px; }
+    .floating-wa {
+      position: fixed; right: 18px; bottom: 18px; z-index: 40; display: grid; place-items: center;
+      width: 60px; height: 60px; border-radius: 50%; background: #20c763; color: white;
+      box-shadow: 0 10px 28px rgba(20,89,52,.25);
+    }
+    .floating-wa svg { width: 30px; height: 30px; }
+
+    /* Partner form */
+    textarea { font: inherit; }
+    .partner-card {
+      background: white; border: 1px solid var(--line); border-radius: 20px;
+      padding: 26px; margin-bottom: 22px; box-shadow: var(--shadow);
+    }
+    .partner-card { scroll-margin-top: 90px; }
+    #contact { scroll-margin-top: 90px; }
+    .partner-card h3 { margin: 0 0 4px; font: 800 1.3rem Manrope, sans-serif; }
+    .partner-card > p { margin: 0 0 20px; color: var(--muted); }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+    .field[hidden] { display: none; }
+    .field > label, .field > .label { font-weight: 700; font-size: .92rem; }
+    .field .opt { color: var(--muted); font-weight: 600; font-size: .8rem; }
+    .field input[type=text], .field input[type=tel], .field input[type=number], .field select, .field textarea {
+      width: 100%; min-height: 48px; padding: 10px 14px; border-radius: 12px;
+      border: 1px solid var(--line); background: #fbfcfa; color: var(--ink); outline: none;
+    }
+    .field textarea { min-height: 84px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: #91b936; box-shadow: 0 0 0 3px rgba(145,185,54,.2); }
+    .field.invalid input, .field.invalid select { border-color: #d9534f; background: #fff7f6; }
+    .field-error { display: none; color: #c0392b; font-size: .82rem; font-weight: 600; }
+    .field.invalid .field-error { display: block; }
+    .check-group { display: flex; flex-wrap: wrap; gap: 10px; }
+    .check-pill {
+      display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+      padding: 10px 14px; border: 1px solid var(--line); border-radius: 999px; background: #fbfcfa; font-weight: 700; font-size: .9rem;
+    }
+    .check-pill input { accent-color: var(--green); width: 17px; height: 17px; }
+    .field > label.consent { font-weight: 500; }
+    .consent { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; color: var(--muted); }
+    .consent input { margin-top: 4px; accent-color: var(--green); width: 17px; height: 17px; flex: none; }
+    .form-actions { margin-top: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .form-actions .button { min-width: 240px; }
+    .form-hint { color: var(--muted); font-size: .86rem; }
+    .form-success {
+      display: none; margin-top: 18px; padding: 14px 16px; border-radius: 12px;
+      background: #eaf6ee; border: 1px solid #bfe0c9; color: var(--green); font-weight: 600;
+    }
+    .form-success.show { display: block; }
+    .partner-perks { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-bottom: 22px; }
+    .perk { background: #eef2e9; border-radius: 14px; padding: 14px 16px; font-weight: 700; font-size: .92rem; }
+    .perk small { display: block; color: var(--muted); font-weight: 600; margin-top: 2px; }
+    @media (max-width: 760px) {
+      .form-grid, .partner-perks { grid-template-columns: 1fr; }
+      .partner-card { padding: 20px 16px; }
+      .form-actions .button { width: 100%; }
+    }
+    @media (max-width: 560px) { .nav-actions .partner-cta { display: none; } }
+
+    /* ===== Premium refresh ===== */
+    :root {
+      --bg: #f6f6f1; --ink: #14241f; --muted: #5f6f67; --green: #0f3d33; --green2: #1c5c4a;
+      --lime: #f4b63f; --line: #e5e7de; --soft: #eef2ec; --chip: #eef3ee; --radius: 16px;
+      --shadow: 0 1px 2px rgba(15,61,51,.06), 0 14px 36px rgba(15,61,51,.08);
+    }
+    body { background: var(--bg); }
+    h1, h2, h3, .brand { font-family: Manrope, 'DM Sans', sans-serif; letter-spacing: -.02em; }
+    .kicker { display: none; }
+    .topbar { background: rgba(255,255,255,.9); }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a { color: var(--muted); font-weight: 600; padding: 6px 0; border-bottom: 2px solid transparent; }
+    .nav-links a:hover { color: var(--ink); border-bottom-color: var(--lime); }
+    .button { border-radius: 12px; }
+    .button-lime { background: var(--lime); color: #2a1d00; font-weight: 800; }
+    .button-lime:hover { background: #f8c35a; }
+    .hero2 { background: linear-gradient(160deg, #0a2d26 0%, #0f3d33 55%, #14503f 100%); color: white; padding: 64px 0 72px; }
+    .hero2-grid { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); gap: 48px; align-items: center; }
+    .hero2 h1 { margin: 0 0 16px; font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.08; font-weight: 800; max-width: 19ch; }
+    .hero2-copy { margin: 0 0 28px; color: rgba(255,255,255,.82); font-size: 1.1rem; max-width: 46ch; }
+    .hero-search { display: flex; gap: 8px; background: white; padding: 8px; border-radius: 16px; box-shadow: 0 18px 40px rgba(0,0,0,.25); }
+    .hero-search input { flex: 1 1 auto; min-width: 0; border: 0; outline: 0; padding: 0 14px; font-size: 1rem; color: var(--ink); background: transparent; min-height: 50px; }
+    .hero-search select { border: 0; border-left: 1px solid var(--line); background: transparent; color: var(--ink); font-weight: 700; padding: 0 10px; outline: 0; }
+    .hero-search .button { min-height: 50px; padding: 0 22px; white-space: nowrap; }
+    .trust-row { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 8px 22px; color: rgba(255,255,255,.78); font-size: .92rem; font-weight: 600; }
+    .trust-row li::before { content: "✓"; color: var(--lime); margin-right: 8px; font-weight: 800; }
+    .hero2-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); border-radius: 22px; padding: 22px; }
+    .hero2-card h2 { margin: 0 0 14px; font-size: 1.05rem; font-weight: 700; color: rgba(255,255,255,.9); }
+    .pop-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+    .pop-tile { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 16px 8px; border-radius: 14px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.08); color: white; font-weight: 700; font-size: .88rem; cursor: pointer; }
+    .pop-tile span { font-size: 1.7rem; line-height: 1; }
+    .pop-tile:hover { background: white; color: var(--green); }
+    #services { padding-top: 56px; }
+    .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    .cat-bar { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 16px; margin: 0 -2px; scrollbar-width: none; }
+    .cat-bar::-webkit-scrollbar { display: none; }
+    .cat-chip { flex: none; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line); background: white; color: var(--ink); font-weight: 700; font-size: .92rem; cursor: pointer; }
+    .cat-chip:hover { border-color: var(--green2); }
+    .cat-chip.active { background: var(--green); border-color: var(--green); color: white; }
+    .service-card { border-radius: 18px; padding: 20px; box-shadow: none; border: 1px solid var(--line); background: white; display: flex; flex-direction: column; }
+    .service-card:hover { border-color: #b9c9bf; box-shadow: var(--shadow); }
+    .service-card h3 { font-size: 1.12rem; margin: 6px 0 6px; }
+    .service-card p { color: var(--muted); font-size: .92rem; margin: 0 0 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .service-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--soft); display: grid; place-items: center; font-size: 1.5rem; }
+    .service-meta { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); margin-bottom: 14px; font-weight: 700; color: var(--green); }
+    .service-card .button { background: var(--soft); color: var(--green); border-color: transparent; }
+    .service-card .button:hover { background: var(--green); color: white; }
+    .member-card { border-radius: 18px; display: flex; flex-direction: column; }
+    .member-card .price-box { margin-top: auto; }
+    .member-top { justify-content: flex-start; }
+    .member-top .rating { margin-left: auto; }
+    .avatar { width: 42px; height: 42px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--green); color: var(--lime); font-weight: 800; font-size: .9rem; }
+    .member-card .button-primary { background: #1fa855; }
+    .member-card .button-primary:hover { background: #178a45; }
+    .partner-card, .contact-panel { border-radius: 22px; }
+    @media (max-width: 900px) { .hero2-grid { grid-template-columns: 1fr; gap: 32px; } .hero2 h1 { max-width: 20ch; } }
+    @media (max-width: 560px) {
+      .hero2 { padding: 40px 0 48px; }
+      .hero-search { flex-wrap: wrap; }
+      .hero-search input { flex-basis: 100%; border-bottom: 1px solid var(--line); }
+      .hero-search select { flex: 1; border-left: 0; min-height: 50px; }
+      .pop-grid { gap: 8px; }
+    }
+    :focus-visible { outline: 3px solid #91b936; outline-offset: 3px; }
+    @media (max-width: 900px) {
+      .services-grid, .member-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .contact-panel { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      .facts { grid-template-columns: 1fr; }
+      .fact { border-right: none; border-bottom: 1px solid var(--line); }
+      .fact:last-child { border-bottom: none; }
+      .section-head { flex-direction: column; align-items: flex-start; }
+      .providers-head { flex-direction: column; }
+      .steps { grid-template-columns: 1fr; }
+      .member-grid { grid-template-columns: 1fr; }
+      .filter-row { width: 100%; justify-content: stretch; }
+      .area-box { flex: 1 1 180px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 26px, 1120px); }
+      .nav { min-height: 64px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .button-small { padding: 8px 12px; }
+      .nav-actions .button-light { display: none; }
+      .hero { padding-top: 52px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .hero-actions .button { width: 100%; }
+      .filter-row { flex-direction: column; align-items: stretch; }
+      .area-box { width: 100%; justify-content: space-between; }
+      .warn-note { max-width: 100%; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Gaya Sewa home">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>Gaya Sewa</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#provider">For providers</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="language-toggle" type="button" aria-label="Switch language">हिंदी</button>
+        <a class="button button-light button-small partner-cta" href="#partner-form" data-i18n="navPartner">Become a partner</a>
+        <a class="button button-light button-small" href="tel:+919229255775">Call</a>
+        <a class="button button-primary button-small" href="https://wa.me/919229255775" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero2" aria-labelledby="hero-title">
+      <div class="container hero2-grid">
+        <div class="hero2-main">
+          <h1 id="hero-title" data-i18n="heroTitle">Trusted local help for your home and events in Gaya.</h1>
+          <p class="hero2-copy" data-i18n="heroCopy">From electricians to tent houses: pick a service, see nearby experts, and talk to them on WhatsApp.</p>
+          <form class="hero-search" id="hero-form" role="search">
+            <input id="hero-search" type="search" data-i18n-ph="heroPh" placeholder="Search: tailor, plumber, mehndi" aria-label="Search services">
+            <select id="hero-town" aria-label="Choose your town">
+              <option>Gaya</option><option>Bodh Gaya</option><option>Sherghati</option><option>Imamganj</option><option>Dumaria</option>
+            </select>
+            <button class="button button-lime" type="submit" data-i18n="heroFind">Find experts</button>
+          </form>
+          <ul class="trust-row">
+            <li data-i18n="trust1">Gaya and nearby towns</li>
+            <li data-i18n="trust2">Chat or call directly</li>
+            <li data-i18n="trust3">Confirm price before booking</li>
+          </ul>
+        </div>
+        <div class="hero2-card">
+          <h2 data-i18n="popularTitle">Popular right now</h2>
+          <div class="pop-grid" id="popular-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker" data-i18n="servicesKicker">Local help, one place</p>
+            <h2 id="services-title" data-i18n="servicesTitle">What service do you need?</h2>
+            <p data-i18n="servicesSub">Choose your town and pick a service to view nearby provider options.</p>
+          </div>
+          <div class="filter-row">
+            <div class="area-box">
+              <label for="town" data-i18n="townLabel">Your town</label>
+              <select id="town" aria-label="Choose your town">
+                <option value="Gaya">Gaya</option>
+                <option value="Bodh Gaya">Bodh Gaya</option>
+                <option value="Sherghati">Sherghati</option>
+                <option value="Imamganj">Imamganj</option>
+                <option value="Dumaria">Dumaria</option>
+              </select>
+            </div>
+            <div class="area-box">
+              <label for="radius" data-i18n="radiusLabel">Service radius</label>
+              <select id="radius" aria-label="Choose service radius">
+                <option value="5">5 km</option>
+                <option value="10">10 km</option>
+                <option value="20">20 km</option>
+                <option value="35">35 km</option>
+                <option value="60">60 km</option>
+                <option value="999">Any</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <label class="search-wrap" aria-label="Search services">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5L21 21"></path></svg>
+          <input id="search" class="search" type="search" placeholder="Search services, e.g. electrician or plumber" aria-label="Search services">
+        </label>
+
+        <div class="cat-bar" id="cat-bar" role="group" aria-label="Service categories"></div>
+        <div id="service-grid" class="services-grid" aria-live="polite"></div>
+        <p id="no-results" class="no-results" data-i18n="noResults">No matching service found. Try another search or contact us on WhatsApp.</p>
+
+        <div id="provider-panel" class="providers" aria-live="polite">
+          <div class="providers-head">
+            <div>
+              <p class="kicker" data-i18n="providersKicker">Nearby options</p>
+              <h2 id="provider-title">Service providers</h2>
+              <p id="listing-area">Selected area: Gaya</p>
+            </div>
+            <div class="warn-note" data-i18n="providerNote">Demo profiles are examples only. Final prices and availability should be confirmed directly on WhatsApp before booking.</div>
+          </div>
+          <div id="member-grid" class="member-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker" data-i18n="howKicker">Simple process</p>
+            <h2 id="how-title" data-i18n="howTitle">Getting help is easy</h2>
+          </div>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">01</div>
+            <h3 data-i18n="step1Title">Choose a service</h3>
+            <p data-i18n="step1Copy">Browse the service you need and open nearby experts in your area.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">02</div>
+            <h3 data-i18n="step2Title">Share the details</h3>
+            <p data-i18n="step2Copy">Send your area, issue, and preferred time in the WhatsApp message.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">03</div>
+            <h3 data-i18n="step3Title">Confirm availability</h3>
+            <p data-i18n="step3Copy">Confirm timing, service details, and final price before the work starts.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="provider" aria-labelledby="provider-title-main">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker" data-i18n="providerKicker">Join Gaya Sewa</p>
+            <h2 id="provider-title-main" data-i18n="providerTitle">Are you a local service provider?</h2>
+            <p data-i18n="providerSub">Fill in your details and send directly on WhatsApp to get listed.</p>
+          </div>
+        </div>
+        <div class="partner-perks">
+          <div class="perk" data-i18n="perk1">✅ Free listing<small>No fee to join right now</small></div>
+          <div class="perk" data-i18n="perk2">📞 Direct customer calls<small>Customers contact you on WhatsApp</small></div>
+          <div class="perk" data-i18n="perk3">🏅 Verified badge<small>Get verified after a quick call</small></div>
+        </div>
+        <div class="partner-card" id="partner-form">
+          <h3 data-i18n="formTitle">Become a Gaya Sewa partner</h3>
+          <p data-i18n="formSub">Fill this short form. It opens WhatsApp with your details ready to send. We will call you to verify and add your listing.</p>
+          <form id="partner-form-el" novalidate>
+            <div class="form-grid">
+              <div class="field" data-field="name">
+                <label for="pf-name" data-i18n="fName">Your name</label>
+                <input id="pf-name" type="text" autocomplete="name" data-i18n-ph="phName" placeholder="e.g. Rajesh Kumar" required>
+                <span class="field-error" data-i18n="errRequired">Please fill this field.</span>
+              </div>
+              <div class="field" data-field="phone">
+                <label for="pf-phone" data-i18n="fPhone">Mobile number</label>
+                <input id="pf-phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="14" placeholder="98XXXXXXXX" required>
+                <span class="field-error" data-i18n="errPhone">Enter a valid 10-digit mobile number.</span>
+              </div>
+              <div class="field" data-field="service">
+                <label for="pf-service" data-i18n="fService">Your service</label>
+                <select id="pf-service" required></select>
+                <span class="field-error" data-i18n="errRequired">Please fill this field.</span>
+              </div>
+              <div class="field" data-field="otherService" id="pf-other-wrap" hidden>
+                <label for="pf-other" data-i18n="fOther">Write your service</label>
+                <input id="pf-other" type="text" data-i18n-ph="phOther" placeholder="e.g. Photographer">
+                <span class="field-error" data-i18n="errRequired">Please fill this field.</span>
+              </div>
+              <div class="field" data-field="town">
+                <label for="pf-town" data-i18n="fTown">Your town</label>
+                <select id="pf-town" required></select>
+                <span class="field-error" data-i18n="errRequired">Please fill this field.</span>
+              </div>
+              <div class="field" data-field="exp">
+                <label for="pf-exp" data-i18n="fExp">Experience (years)</label>
+                <input id="pf-exp" type="number" min="0" max="60" inputmode="numeric" placeholder="5" required>
+                <span class="field-error" data-i18n="errExp">Enter your experience in years.</span>
+              </div>
+              <div class="field" data-field="price">
+                <label for="pf-price" data-i18n="fPrice">Starting price (₹)</label>
+                <input id="pf-price" type="number" min="1" inputmode="numeric" placeholder="499" required>
+                <span class="field-error" data-i18n="errPrice">Enter your starting price.</span>
+              </div>
+              <div class="field" data-field="available">
+                <label for="pf-available" data-i18n="fAvailable">Availability</label>
+                <select id="pf-available"></select>
+              </div>
+              <div class="field full">
+                <label for="pf-focus"><span data-i18n="fFocus">What do you do best?</span> <span class="opt" data-i18n="optional">(optional)</span></label>
+                <input id="pf-focus" type="text" data-i18n-ph="phFocus" placeholder="e.g. Blouse & suit, wiring & repair">
+              </div>
+              <div class="field full">
+                <span class="label" data-i18n="fExtras">Extra facilities <span class="opt" data-i18n="optional">(optional)</span></span>
+                <div class="check-group">
+                  <label class="check-pill"><input type="checkbox" name="extras" value="pickup"> <span data-i18n="extraPickup">🚚 Home pickup &amp; delivery</span></label>
+                  <label class="check-pill"><input type="checkbox" name="extras" value="urgent"> <span data-i18n="extraUrgent">⚡ Urgent (24 hrs)</span></label>
+                </div>
+              </div>
+              <div class="field full">
+                <label for="pf-note"><span data-i18n="fNote">Anything else?</span> <span class="opt" data-i18n="optional">(optional)</span></label>
+                <textarea id="pf-note" data-i18n-ph="phNote" placeholder="Shop address, languages, timings..."></textarea>
+              </div>
+              <div class="field full" data-field="consent">
+                <label class="consent"><input id="pf-consent" type="checkbox"> <span data-i18n="consent">I agree that Gaya Sewa may call me to verify my details and show my name, town, price and service on the website.</span></label>
+                <span class="field-error" data-i18n="errConsent">Please accept to continue.</span>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" type="submit" data-i18n="submitBtn">Send on WhatsApp</button>
+              <span class="form-hint" data-i18n="formHint">Please also send 2 photos of your work on WhatsApp.</span>
+            </div>
+            <div class="form-success" id="partner-success" role="status" data-i18n="formSuccess">WhatsApp has opened with your details. Press Send there. Don't forget to attach 2 photos of your work. We will call you within 24 hours.</div>
+          </form>
+        </div>
+        <div class="contact-panel" id="contact">
+          <div class="contact-copy">
+            <p class="kicker" style="color: var(--lime);" data-i18n="contactKicker">Get in touch</p>
+            <h2 data-i18n="contactTitle">Tell us what you need.</h2>
+            <p data-i18n="contactCopy">We can help connect you with local professionals in your area. Send details directly via WhatsApp and we will assist.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button button-lime" href="https://wa.me/919229255775?text=Hi%2C%20I%20want%20to%20connect%20with%20a%20local%20professional%20in%20Gaya%20Sewa." target="_blank" rel="noopener noreferrer" data-i18n="contactWhatsApp">WhatsApp</a>
+            <a class="button button-light" href="tel:+919229255775" data-i18n="contactCall">Call: +91 92292 55775</a>
+            <span class="contact-number">WhatsApp / phone: +91 92292 55775</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <a class="brand" href="#home" aria-label="Gaya Sewa logo">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>Gaya Sewa</span>
+      </a>
+      <div class="footer-copy" data-i18n="footerText">Final price, availability and service details must be confirmed directly through WhatsApp before booking.</div>
+    </div>
+  </footer>
+
+  <a class="floating-wa" id="floating-wa" href="https://wa.me/919229255775?text=Hi%2C%20I%20need%20help%20from%20Gaya%20Sewa." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Gaya Sewa">
+    <svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor"><path d="M16.04 3C8.86 3 3.02 8.82 3.02 15.98c0 2.28.6 4.5 1.75 6.46L3 29l6.75-1.76a13.1 13.1 0 0 0 6.28 1.6h.01c7.17 0 13.01-5.84 13.01-13.02C29.05 8.82 23.21 3 16.04 3Zm0 23.23c-1.76 0-3.49-.46-5.02-1.33l-.36-.21-4.01 1.05 1.08-3.9-.24-.4a10.1 10.1 0 0 1-1.43-5.29c0-5.59 4.54-10.12 10.13-10.12 2.7 0 5.24 1.05 7.14 2.96A10.06 10.06 0 0 1 26.17 15.9c0 5.58-4.54 10.12-10.13 10.12Zm5.54-7.52c-.3-.15-1.77-.88-2.05-.98-.28-.1-.49-.15-.69.15-.2.3-.77.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.89-.8-1.49-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.69-1.66-.94-2.27-.25-.6-.5-.52-.69-.53-.18-.01-.38-.01-.58-.01a1.12 1.12 0 0 0-.81.38c-.28.3-1.07 1.05-1.07 2.57 0 1.52 1.1 2.98 1.26 3.18.16.2 2.17 3.32 5.27 4.66.74.32 1.32.51 1.77.66.74.24 1.42.2 1.95.12.6-.09 1.77-.72 2.02-1.41.25-.69.25-1.29.18-1.41-.07-.12-.28-.2-.58-.35Z"></path></svg>
+  </a>
+
+  <script>
+    const WHATSAPP_NUMBER = '919229255775';
+    const townDistances = {
+      'Gaya': { Gaya: 0, 'Bodh Gaya': 12, 'Sherghati': 32, 'Imamganj': 27, 'Dumaria': 29 },
+      'Bodh Gaya': { Gaya: 12, 'Bodh Gaya': 0, 'Sherghati': 35, 'Imamganj': 21, 'Dumaria': 30 },
+      'Sherghati': { Gaya: 32, 'Bodh Gaya': 35, 'Sherghati': 0, 'Imamganj': 42, 'Dumaria': 47 },
+      'Imamganj': { Gaya: 27, 'Bodh Gaya': 21, 'Sherghati': 42, 'Imamganj': 0, 'Dumaria': 26 },
+      'Dumaria': { Gaya: 29, 'Bodh Gaya': 30, 'Sherghati': 47, 'Imamganj': 26, 'Dumaria': 0 }
+    };
+
+    const translations = {
+      en: {
+        heroPh: 'Search: tailor, plumber, mehndi', heroFind: 'Find experts', popularTitle: 'Popular right now',
+        trust1: 'Gaya and nearby towns', trust2: 'Chat or call directly', trust3: 'Confirm price before booking',
+        navPartner: 'Become a partner',
+        perk1: '✅ Free listing<small>No fee to join right now</small>',
+        perk2: '📞 Direct customer calls<small>Customers contact you on WhatsApp</small>',
+        perk3: '🏅 Verified badge<small>Get verified after a quick call</small>',
+        formTitle: 'Become a Gaya Sewa partner',
+        formSub: 'Fill this short form. It opens WhatsApp with your details ready to send. We will call you to verify and add your listing.',
+        fName: 'Your name', fPhone: 'Mobile number', fService: 'Your service', fOther: 'Write your service',
+        fTown: 'Your town', fExp: 'Experience (years)', fPrice: 'Starting price (₹)', fAvailable: 'Availability',
+        fFocus: 'What do you do best?', fExtras: 'Extra facilities <span class="opt">(optional)</span>', fNote: 'Anything else?', optional: '(optional)',
+        phName: 'e.g. Rajesh Kumar', phOther: 'e.g. Photographer', phFocus: 'e.g. Blouse & suit, wiring & repair', phNote: 'Shop address, languages, timings...',
+        extraPickup: '🚚 Home pickup & delivery', extraUrgent: '⚡ Urgent (24 hrs)',
+        consent: 'I agree that Gaya Sewa may call me to verify my details and show my name, town, price and service on the website.',
+        submitBtn: 'Send on WhatsApp', formHint: 'Please also send 2 photos of your work on WhatsApp.',
+        formSuccess: "WhatsApp has opened with your details. Press Send there. Don't forget to attach 2 photos of your work. We will call you within 24 hours.",
+        errRequired: 'Please fill this field.', errPhone: 'Enter a valid 10-digit mobile number.', errExp: 'Enter your experience in years.', errPrice: 'Enter your starting price.', errConsent: 'Please accept to continue.',
+        eyebrow: 'Local services in Gaya and nearby',
+        heroTitle: 'Trusted local help for your home and events in Gaya.',
+        heroCopy: 'From electricians to tent houses: pick a service, see nearby experts, and talk to them on WhatsApp.',
+        browse: 'Browse services ↓',
+        chatNow: 'Chat now',
+        heroNote: 'WhatsApp opens a message draft so you can review and send.',
+        factArea: 'Gaya region',
+        factAreaSub: 'Gaya and nearby towns',
+        factContact: 'Direct contact',
+        factContactSub: 'Chat or call us',
+        factConfirm: 'Confirm before booking',
+        factConfirmSub: 'Check availability and price',
+        servicesKicker: 'Local help, one place',
+        servicesTitle: 'What service do you need?',
+        servicesSub: 'Choose your town and pick a service to view nearby provider options.',
+        townLabel: 'Your town',
+        radiusLabel: 'Service radius',
+        noResults: 'No matching service found. Try another search or contact us on WhatsApp.',
+        providersKicker: 'Nearby options',
+        providerNote: 'Demo profiles are examples only. Final prices and availability should be confirmed directly on WhatsApp before booking.',
+        howKicker: 'Simple process',
+        howTitle: 'Getting help is easy',
+        step1Title: 'Choose a service',
+        step1Copy: 'Browse the service you need and open nearby experts in your area.',
+        step2Title: 'Share the details',
+        step2Copy: 'Send your area, issue, and preferred time in the WhatsApp message.',
+        step3Title: 'Confirm availability',
+        step3Copy: 'Confirm timing, service details, and final price before the work starts.',
+        providerKicker: 'Join Gaya Sewa',
+        providerTitle: 'Are you a local service provider?',
+        providerSub: 'Fill in your details and send directly on WhatsApp to get listed.',
+        contactKicker: 'Get in touch',
+        contactTitle: 'Tell us what you need.',
+        contactCopy: 'We can help connect you with local professionals in your area. Send details directly via WhatsApp and we will assist.',
+        contactWhatsApp: 'WhatsApp',
+        contactCall: 'Call: +91 92292 55775',
+        footerText: 'Final price, availability and service details must be confirmed directly through WhatsApp before booking.'
+      },
+      hi: {
+        heroPh: 'खोजें: टेलर, प्लंबर, मेहंदी', heroFind: 'विशेषज्ञ खोजें', popularTitle: 'अभी लोकप्रिय',
+        trust1: 'गया और आसपास के शहर', trust2: 'सीधे चैट या कॉल करें', trust3: 'बुकिंग से पहले कीमत पक्की करें',
+        navPartner: 'पार्टनर बनें',
+        perk1: '✅ फ्री लिस्टिंग<small>अभी जुड़ने की कोई फीस नहीं</small>',
+        perk2: '📞 सीधे ग्राहक कॉल<small>ग्राहक आपसे WhatsApp पर संपर्क करेंगे</small>',
+        perk3: '🏅 वेरिफाइड बैज<small>एक छोटे कॉल के बाद वेरिफिकेशन</small>',
+        formTitle: 'गया सेवा के पार्टनर बनें',
+        formSub: 'यह छोटा फॉर्म भरें। WhatsApp आपकी जानकारी के साथ खुल जाएगा। हम आपको कॉल करके वेरिफाई करेंगे और आपकी लिस्टिंग जोड़ेंगे।',
+        fName: 'आपका नाम', fPhone: 'मोबाइल नंबर', fService: 'आपकी सेवा', fOther: 'अपनी सेवा लिखें',
+        fTown: 'आपका शहर', fExp: 'अनुभव (वर्ष)', fPrice: 'शुरुआती कीमत (₹)', fAvailable: 'उपलब्धता',
+        fFocus: 'आप किसमें सबसे अच्छे हैं?', fExtras: 'अतिरिक्त सुविधाएँ <span class="opt">(वैकल्पिक)</span>', fNote: 'कुछ और बताना है?', optional: '(वैकल्पिक)',
+        phName: 'जैसे: राजेश कुमार', phOther: 'जैसे: फोटोग्राफर', phFocus: 'जैसे: ब्लाउज और सूट, वायरिंग और रिपेयर', phNote: 'दुकान का पता, भाषाएँ, समय...',
+        extraPickup: '🚚 होम पिकअप और डिलीवरी', extraUrgent: '⚡ अर्जेंट (24 घंटे)',
+        consent: 'मैं सहमत हूँ कि गया सेवा मुझे वेरिफिकेशन के लिए कॉल कर सकती है और वेबसाइट पर मेरा नाम, शहर, कीमत और सेवा दिखा सकती है।',
+        submitBtn: 'WhatsApp पर भेजें', formHint: 'कृपया WhatsApp पर अपने काम की 2 फोटो भी भेजें।',
+        formSuccess: 'WhatsApp आपकी जानकारी के साथ खुल गया है। वहाँ Send दबाएँ और अपने काम की 2 फोटो भी जोड़ें। हम 24 घंटे में आपको कॉल करेंगे।',
+        errRequired: 'कृपया यह जानकारी भरें।', errPhone: '10 अंकों का सही मोबाइल नंबर डालें।', errExp: 'अपना अनुभव वर्षों में लिखें।', errPrice: 'अपनी शुरुआती कीमत लिखें।', errConsent: 'आगे बढ़ने के लिए सहमति दें।',
+        eyebrow: 'गया और आसपास की स्थानीय सेवाएँ',
+        heroTitle: 'गया में घर और शादी-समारोह के लिए भरोसेमंद सेवाएँ।',
+        heroCopy: 'इलेक्ट्रीशियन से टेंट हाउस तक: सेवा चुनें, पास के विशेषज्ञ देखें और WhatsApp पर सीधे बात करें।',
+        browse: 'सेवाएँ देखें ↓',
+        chatNow: 'अभी चैट करें',
+        heroNote: 'WhatsApp में प्रीफिल्ड मैसेज खुलता है, जिसे आप review करके भेज सकते हैं।',
+        factArea: 'गया क्षेत्र',
+        factAreaSub: 'गया और आसपास के शहर',
+        factContact: 'सीधा संपर्क',
+        factContactSub: 'WhatsApp या कॉल करें',
+        factConfirm: 'बुकिंग से पहले पुष्टि करें',
+        factConfirmSub: 'उपलब्धता और कीमत देखें',
+        servicesKicker: 'स्थानीय मदद, एक जगह',
+        servicesTitle: 'आपको कौन-सी सेवा चाहिए?',
+        servicesSub: 'अपना शहर चुनें और सेवा का चयन करें, फिर आसपास के विशेषज्ञ देखें।',
+        townLabel: 'आपका शहर',
+        radiusLabel: 'सेवा की दूरी',
+        noResults: 'कोई मैचिंग सेवा नहीं मिली। दूसरा शब्द खोजें या WhatsApp पर हमसे संपर्क करें।',
+        providersKicker: 'पास के विकल्प',
+        providerNote: 'यह डेमो प्रोफ़ाइलें उदाहरण ह���ं। अंतिम कीमत और उपलब्धता WhatsApp पर सीधे पुष्टि करनी चाहिए।',
+        howKicker: 'सरल प्रक्रिया',
+        howTitle: 'मदद लेना आसान है',
+        step1Title: 'सेवा चुनें',
+        step1Copy: 'अपनी जरूरत की सेवा चुनें और अपने क्षेत्र के पास के विशेषज्ञ देखें।',
+        step2Title: 'जानकारी साझा करें',
+        step2Copy: 'अपना क्षेत्र, समस्या और पसंदीदा समय WhatsApp संदेश में लिखें।',
+        step3Title: 'उपलब्धता पुष्टि करें',
+        step3Copy: 'काम शुरू होने से पहले समय, सेवा विवरण और अंतिम कीमत सुनिश्चित करें।',
+        providerKicker: 'Gaya Sewa में शामिल हों',
+        providerTitle: 'क्या आप कोई स्थानीय सेवा प्रदाता हैं?',
+        providerSub: 'अपना विवरण भरें और WhatsApp पर सीधे भेजें ताकि सूची में शामिल किया जा सके।',
+        contactKicker: 'संपर्क करें',
+        contactTitle: 'हमें अपनी जरूरत बताइए।',
+        contactCopy: 'हम आपके क्षेत्र के स्थानीय प्रोफेशनल से कनेक्ट करने में मदद कर सकते हैं। WhatsApp पर विवरण भेजें, हम सहायता देंगे।',
+        contactWhatsApp: 'WhatsApp',
+        contactCall: 'कॉल: +91 92292 55775',
+        footerText: 'अंतिम कीमत, उपलब्धता और सेवा विवरण बुकिंग से पहले WhatsApp पर सीधे पुष्टि करनी होगी।'
+      }
+    };
+
+    const serviceData = [
+      {
+        icon: '⚡',
+        name: 'Electrician',
+        hi: 'इलेक्ट्रीशियन',
+        desc: 'Wiring, fan, switch, lights, power points and home electrical repair.',
+        hiDesc: 'वायरिंग, फैन, स्विच, लाइट, पावर प्वाइंट और घर की बिजली मरम्मत।',
+        keywords: 'electrician bijli light fan switch wiring house repair',
+        providers: [
+          { name: 'Rohit Kumar', city: 'Gaya', exp: '6 yrs', rating: 4.9, price: 299, available: 'Today', focus: 'Wiring & repair' },
+          { name: 'Amit Kumar', city: 'Bodh Gaya', exp: '5 yrs', rating: 4.8, price: 349, available: 'Today', focus: 'Fan & switch' },
+          { name: 'Vikas Paswan', city: 'Sherghati', exp: '7 yrs', rating: 4.7, price: 399, available: 'Tomorrow', focus: 'Home electrical' },
+          { name: 'Manoj Kumar', city: 'Imamganj', exp: '4 yrs', rating: 4.6, price: 279, available: 'Today', focus: 'Lighting setup' },
+          { name: 'Sonu Kumar', city: 'Dumaria', exp: '5 yrs', rating: 4.8, price: 329, available: 'Today', focus: 'Appliance repair' }
+        ]
+      },
+      {
+        icon: '🚰',
+        name: 'Plumber',
+        hi: 'प्लंबर',
+        desc: 'Tap, pipe, bathroom fitting, leakage fix and tank plumbing work.',
+        hiDesc: 'नल, पाइप, बाथरूम फिटिंग, लीकेज ठीक करना और टंकी plumbing काम।',
+        keywords: 'plumber pipe tap leakage bathroom tank water repair',
+        providers: [
+          { name: 'Raju Kumar', city: 'Gaya', exp: '8 yrs', rating: 4.9, price: 349, available: 'Today', focus: 'Pipe & tap' },
+          { name: 'Pankaj Kumar', city: 'Bodh Gaya', exp: '6 yrs', rating: 4.8, price: 399, available: 'Today', focus: 'Bathroom fitting' },
+          { name: 'Sanjay Yadav', city: 'Gaya', exp: '7 yrs', rating: 4.7, price: 449, available: 'Tomorrow', focus: 'Tank & water line' },
+          { name: 'Deepak Kumar', city: 'Sherghati', exp: '5 yrs', rating: 4.8, price: 329, available: 'Today', focus: 'Leakage repair' },
+          { name: 'Mithilesh Kumar', city: 'Imamganj', exp: '6 yrs', rating: 4.6, price: 379, available: 'Today', focus: 'Bathroom plumbing' }
+        ]
+      },
+      {
+        icon: '❄️',
+        name: 'AC repair',
+        hi: 'AC रिपेयर',
+        desc: 'AC service, gas refill, cooling issues and installation support.',
+        hiDesc: 'AC सर्विस, गैस रिफिल, कूलिंग समस्या और इंस्टॉलेशन सहायता।',
+        keywords: 'ac repair gas refill conditioner cooling service installation',
+        providers: [
+          { name: 'Rahul Kumar', city: 'Gaya', exp: '7 yrs', rating: 4.9, price: 599, available: 'Today', focus: 'AC service' },
+          { name: 'Chandan Kumar', city: 'Bodh Gaya', exp: '6 yrs', rating: 4.8, price: 699, available: 'Today', focus: 'Gas refill' },
+          { name: 'Sahil Ansari', city: 'Sherghati', exp: '5 yrs', rating: 4.7, price: 649, available: 'Tomorrow', focus: 'Cooling issue fix' },
+          { name: 'Arman Khan', city: 'Gaya', exp: '4 yrs', rating: 4.6, price: 549, available: 'Today', focus: 'Installation' },
+          { name: 'Vivek Kumar', city: 'Dumaria', exp: '6 yrs', rating: 4.8, price: 699, available: 'Today', focus: 'Service & maintenance' }
+        ]
+      },
+      {
+        icon: '🧹',
+        name: 'Home cleaning',
+        hi: 'घर की सफाई',
+        desc: 'Home cleaning, sofa cleaning, bathroom sanitizing and water tank cleaning.',
+        hiDesc: 'घर की सफाई, सोफा सफाई, बाथरूम सैनिटाइजिंग और पानी की टंकी सफाई।',
+        keywords: 'home cleaning sofa tank sanitization deep cleaning',
+        providers: [
+          { name: 'Pooja Devi', city: 'Gaya', exp: '4 yrs', rating: 4.9, price: 499, available: 'Today', focus: 'Deep cleaning' },
+          { name: 'Sunita Devi', city: 'Bodh Gaya', exp: '5 yrs', rating: 4.8, price: 599, available: 'Today', focus: 'Sofa cleaning' },
+          { name: 'Rekha Kumari', city: 'Gaya', exp: '6 yrs', rating: 4.7, price: 649, available: 'Tomorrow', focus: 'Home hygiene' },
+          { name: 'Kavita Devi', city: 'Sherghati', exp: '4 yrs', rating: 4.8, price: 549, available: 'Today', focus: 'Bathroom cleaning' },
+          { name: 'Rani Kumari', city: 'Imamganj', exp: '5 yrs', rating: 4.6, price: 599, available: 'Today', focus: 'Tank cleaning' }
+        ]
+      },
+      {
+        icon: '🪚',
+        name: 'Carpenter',
+        hi: 'बढ़ई',
+        desc: 'Furniture repair, door fitting, wardrobe work and wood fixing.',
+        hiDesc: 'फर्नीचर रिपेयर, दरवाजा फिटिंग, वार्डरोब काम और लकड़ी का मरम्मत।',
+        keywords: 'carpenter furniture repair door fitting wardrobe wood work',
+        providers: [
+          { name: 'Mukesh Sharma', city: 'Gaya', exp: '8 yrs', rating: 4.9, price: 399, available: 'Today', focus: 'Woodwork' },
+          { name: 'Ramesh Kumar', city: 'Bodh Gaya', exp: '7 yrs', rating: 4.8, price: 449, available: 'Today', focus: 'Door repair' },
+          { name: 'Arvind Kumar', city: 'Gaya', exp: '6 yrs', rating: 4.7, price: 529, available: 'Tomorrow', focus: 'Furniture fix' },
+          { name: 'Naresh Yadav', city: 'Sherghati', exp: '5 yrs', rating: 4.8, price: 379, available: 'Today', focus: 'Wardrobe work' },
+          { name: 'Suresh Paswan', city: 'Dumaria', exp: '7 yrs', rating: 4.6, price: 429, available: 'Today', focus: 'Cabinet repair' }
+        ]
+      },
+      {
+        icon: '💧',
+        name: 'RO / Water purifier',
+        hi: 'RO / वाटर प्यूरीफायर',
+        desc: 'Water purifier service, filter replacement and installation support.',
+        hiDesc: 'वाटर प्यूरीफायर सर्विस, फिल्टर रिप्लेसमेंट और इंस्टॉलेशन सहायता।',
+        keywords: 'ro purifier filter installation service water quality',
+        providers: [
+          { name: 'Ajay Kumar', city: 'Gaya', exp: '5 yrs', rating: 4.8, price: 349, available: 'Today', focus: 'Filter change' },
+          { name: 'Niraj Kumar', city: 'Bodh Gaya', exp: '6 yrs', rating: 4.7, price: 399, available: 'Today', focus: 'RO service' },
+          { name: 'Ravi Ranjan', city: 'Gaya', exp: '4 yrs', rating: 4.6, price: 429, available: 'Tomorrow', focus: 'Installation' },
+          { name: 'Kundan Kumar', city: 'Sherghati', exp: '5 yrs', rating: 4.8, price: 349, available: 'Today', focus: 'Membrane fix' },
+          { name: 'Shubham Kumar', city: 'Imamganj', exp: '4 yrs', rating: 4.7, price: 379, available: 'Today', focus: 'Whole house purifier' }
+        ]
+      },
+      {
+        icon: '📚',
+        name: 'Home tutor',
+        hi: 'होम ट्यूटर',
+        desc: 'Home tuition for school students and coaching support for exam prep.',
+        hiDesc: 'स्कूल बच्चों के लिए होम ट्यूशन और परीक्षा तैयारी की कोचिंग सहायता।',
+        keywords: 'tutor coaching home tuition school student exam prep',
+        providers: [
+          { name: 'Neha Kumari', city: 'Gaya', exp: '4 yrs', rating: 4.9, price: 499, available: 'Today', focus: 'Math & Science' },
+          { name: 'Anjali Kumari', city: 'Bodh Gaya', exp: '5 yrs', rating: 4.8, price: 549, available: 'Today', focus: 'English & EVS' },
+          { name: 'Amit Ranjan', city: 'Gaya', exp: '7 yrs', rating: 4.9, price: 599, available: 'Tomorrow', focus: 'Class 8-12' },
+          { name: 'Priya Kumari', city: 'Sherghati', exp: '5 yrs', rating: 4.8, price: 479, available: 'Today', focus: 'Foundation coaching' },
+          { name: 'Rakesh Kumar', city: 'Imamganj', exp: '6 yrs', rating: 4.7, price: 529, available: 'Today', focus: 'Exam preparation' }
+        ]
+      },
+      {
+        icon: '🎨',
+        name: 'Painter',
+        hi: 'पेंटर',
+        desc: 'Interior painting, putty work, wall repair and home finishing.',
+        hiDesc: 'इन्टीरियर पेंटिंग, पुट्टी काम, दीवार मरम्मत और घर की फिनिशिंग।',
+        keywords: 'painter wall repair putty paint finishing interior',
+        providers: [
+          { name: 'Dilip Kumar', city: 'Gaya', exp: '7 yrs', rating: 4.8, price: 599, available: 'Today', focus: 'Wall painting' },
+          { name: 'Bittu Kumar', city: 'Bodh Gaya', exp: '6 yrs', rating: 4.7, price: 649, available: 'Today', focus: 'Putty & finish' },
+          { name: 'Shankar Paswan', city: 'Gaya', exp: '8 yrs', rating: 4.9, price: 699, available: 'Tomorrow', focus: 'Home exterior' },
+          { name: 'Pramod Kumar', city: 'Sherghati', exp: '5 yrs', rating: 4.7, price: 579, available: 'Today', focus: 'Interior work' },
+          { name: 'Nawal Kishore', city: 'Dumaria', exp: '6 yrs', rating: 4.8, price: 629, available: 'Today', focus: 'Surface repair' }
+        ]
+      },
+      {
+        icon: '📱',
+        name: 'Mobile / Laptop repair',
+        hi: 'मोबाइल / लैपटॉप रिपेयर',
+        desc: 'Phone screen repair, laptop servicing, battery replacement and software help.',
+        hiDesc: 'फोन स्क्रीन रिपेयर, लैपटॉप सर्विसिंग, बैटरी बदले और सॉफ्टवेयर सहायता।',
+        keywords: 'mobile laptop repair screen battery servicing software',
+        providers: [
+          { name: 'Saurabh Kumar', city: 'Gaya', exp: '5 yrs', rating: 4.8, price: 399, available: 'Today', focus: 'Phone screen' },
+          { name: 'Rizwan Ahmad', city: 'Bodh Gaya', exp: '6 yrs', rating: 4.7, price: 499, available: 'Today', focus: 'Laptop service' },
+          { name: 'Mohit Kumar', city: 'Gaya', exp: '4 yrs', rating: 4.8, price: 449, available: 'Tomorrow', focus: 'Battery fix' },
+          { name: 'Tariq Anwar', city: 'Sherghati', exp: '5 yrs', rating: 4.6, price: 429, available: 'Today', focus: 'Software issue' },
+          { name: 'Abhishek Kumar', city: 'Imamganj', exp: '6 yrs', rating: 4.9, price: 479, available: 'Today', focus: 'Repair & upgrade' }
+        ]
+      },
+      {
+        icon: '🚕',
+        name: 'Taxi / Driver',
+        hi: 'टैक्सी / ड्राइवर',
+        desc: 'Local travel, airport drop, daily ride and driver availability support.',
+        hiDesc: 'स्थानीय यात्रा, एयरपोर्ट ड्रॉप, दैनिक सवारी और ड्राइवर उपलब्धता सहायता।',
+        keywords: 'taxi driver cab local travel airport drop daily ride',
+        providers: [
+          { name: 'Ravi Kumar', city: 'Gaya', exp: '8 yrs', rating: 4.9, price: 699, available: 'Today', focus: 'Local city ride' },
+          { name: 'Ajit Yadav', city: 'Bodh Gaya', exp: '7 yrs', rating: 4.8, price: 799, available: 'Today', focus: 'Airport drop' },
+          { name: 'Imran Khan', city: 'Gaya', exp: '6 yrs', rating: 4.7, price: 899, available: 'Tomorrow', focus: 'Daily driver' },
+          { name: 'Vishal Kumar', city: 'Sherghati', exp: '5 yrs', rating: 4.8, price: 749, available: 'Today', focus: 'Tour travel' },
+          { name: 'Santosh Kumar', city: 'Imamganj', exp: '8 yrs', rating: 4.9, price: 899, available: 'Today', focus: 'Local travel' }
+        ]
+      },
+      {
+        icon: '🌿',
+        name: 'Bridal mehndi',
+        hi: 'ब्राइडल मेहंदी',
+        desc: 'Bridal mehndi, arabic and traditional designs, engagement and wedding event appointments.',
+        hiDesc: 'ब्राइडल मेहंदी, अरेबिक और पारंपरिक डिज़ाइन, सगाई और शादी के इवेंट अपॉइंटमेंट।',
+        keywords: 'bridal mehndi mehendi henna arabic design wedding engagement event appointment',
+        providers: [
+          { name: 'Shalini Kumari', city: 'Gaya', exp: '6 yrs', rating: 4.9, price: 999, available: 'Today', focus: 'Bridal mehndi' },
+          { name: 'Nisha Mehndi Art', city: 'Bodh Gaya', exp: '5 yrs', rating: 4.8, price: 1199, available: 'Today', focus: 'Arabic design' },
+          { name: 'Rupa Kumari', city: 'Gaya', exp: '7 yrs', rating: 4.9, price: 1499, available: 'Tomorrow', focus: 'Full bridal mehndi' },
+          { name: 'Soni Mehndi', city: 'Sherghati', exp: '5 yrs', rating: 4.8, price: 899, available: 'Today', focus: 'Traditional design' },
+          { name: 'Anamika Mehndi', city: 'Imamganj', exp: '6 yrs', rating: 4.7, price: 1299, available: 'Today', focus: 'Engagement & wedding' }
+        ]
+      },
+      {
+        icon: '👗',
+        name: 'Women tailor',
+        hi: 'महिला टेलर',
+        desc: 'Blouse, suit, lehenga, saree fall-pico, alteration and custom stitching for women.',
+        hiDesc: 'ब्लाउज, सूट, लहंगा, साड़ी फॉल-पिको, अल्टरेशन और महिलाओं के लिए कस्टम सिलाई।',
+        keywords: 'women tailor ladies tailor blouse suit lehenga saree fall pico alteration stitching boutique darzi',
+        providers: [
+          { name: 'Sunita Boutique', city: 'Gaya', exp: '8 yrs', rating: 4.9, price: 299, available: 'Today', focus: 'Blouse & suit', tags: ['pickup','urgent'] },
+          { name: 'Meena Devi', city: 'Bodh Gaya', exp: '6 yrs', rating: 4.8, price: 349, available: 'Today', focus: 'Lehenga & designer wear', tags: ['pickup'] },
+          { name: 'Rekha Tailoring', city: 'Gaya', exp: '7 yrs', rating: 4.7, price: 249, available: 'Tomorrow', focus: 'Alteration & fall-pico', tags: ['urgent'] },
+          { name: 'Kiran Kumari', city: 'Sherghati', exp: '5 yrs', rating: 4.8, price: 279, available: 'Today', focus: 'Custom stitching', tags: ['pickup'] },
+          { name: 'Pushpa Devi', city: 'Imamganj', exp: '9 yrs', rating: 4.7, price: 299, available: 'Today', focus: 'Salwar suit', tags: ['urgent'] }
+        ]
+      },
+      {
+        icon: '👔',
+        name: 'Men tailor',
+        hi: 'पुरुष टेलर',
+        desc: 'Shirt, pant, kurta-pajama, sherwani, coat-suit stitching and alteration for men.',
+        hiDesc: 'शर्ट, पैंट, कुर्ता-पजामा, शेरवानी, कोट-सूट सिलाई और पुरुषों के लिए अल्टरेशन।',
+        keywords: 'men tailor gents tailor shirt pant kurta pajama sherwani coat suit alteration stitching darzi',
+        providers: [
+          { name: 'Rajesh Tailors', city: 'Gaya', exp: '10 yrs', rating: 4.9, price: 349, available: 'Today', focus: 'Shirt & pant', tags: ['pickup','urgent'] },
+          { name: 'Salim Darzi', city: 'Bodh Gaya', exp: '8 yrs', rating: 4.8, price: 399, available: 'Today', focus: 'Kurta-pajama', tags: ['urgent'] },
+          { name: 'Gopal Tailoring', city: 'Gaya', exp: '12 yrs', rating: 4.9, price: 1499, available: 'Tomorrow', focus: 'Sherwani & coat-suit', tags: ['pickup'] },
+          { name: 'Mohan Kumar', city: 'Sherghati', exp: '6 yrs', rating: 4.7, price: 299, available: 'Today', focus: 'Alteration', tags: ['urgent'] },
+          { name: 'Sanjeev Tailors', city: 'Dumaria', exp: '9 yrs', rating: 4.8, price: 379, available: 'Today', focus: 'Custom stitching', tags: ['pickup'] }
+        ]
+      },
+      {
+        icon: '⛺',
+        name: 'Tent house',
+        hi: 'टेंट हाउस',
+        desc: 'Tent, pandal, chairs, tables, lighting, sound and decoration for weddings and events.',
+        hiDesc: 'शादी और इवेंट के लिए टेंट, पंडाल, कुर्सी-टेबल, लाइटिंग, साउंड और सजावट।',
+        keywords: 'tent house pandal shamiyana chair table lighting sound decoration wedding event party',
+        providers: [
+          { name: 'Gaya Tent House', city: 'Gaya', exp: '12 yrs', rating: 4.9, price: 4999, available: 'Today', focus: 'Wedding pandal' },
+          { name: 'Maa Durga Tent', city: 'Bodh Gaya', exp: '9 yrs', rating: 4.8, price: 3999, available: 'Today', focus: 'Tent & lighting' },
+          { name: 'Shree Events Tent', city: 'Gaya', exp: '8 yrs', rating: 4.7, price: 3499, available: 'Tomorrow', focus: 'Chairs & tables' },
+          { name: 'Balaji Tent & Decor', city: 'Sherghati', exp: '10 yrs', rating: 4.8, price: 3999, available: 'Today', focus: 'Decoration' },
+          { name: 'Anand Tent House', city: 'Imamganj', exp: '7 yrs', rating: 4.6, price: 2999, available: 'Today', focus: 'Sound & light' }
+        ]
+      },
+      {
+        icon: '🍽️',
+        name: 'Catering',
+        hi: 'केटरिंग',
+        desc: 'Wedding, party and function catering with veg menu, live counters and serving staff.',
+        hiDesc: 'शादी, पार्टी और समारोह के लिए केटरिंग, वेज मेन्यू, लाइव काउंटर और सर्विंग स्टाफ।',
+        keywords: 'catering caterer food wedding party function buffet halwai menu',
+        providers: [
+          { name: 'Shiv Catering', city: 'Gaya', exp: '10 yrs', rating: 4.9, price: 12000, available: 'Today', focus: 'Wedding catering' },
+          { name: 'Maa Annapurna Catering', city: 'Bodh Gaya', exp: '8 yrs', rating: 4.8, price: 9000, available: 'Today', focus: 'Party & function' },
+          { name: 'Raj Halwai', city: 'Gaya', exp: '15 yrs', rating: 4.9, price: 15000, available: 'Tomorrow', focus: 'Traditional menu' },
+          { name: 'Gupta Catering', city: 'Sherghati', exp: '7 yrs', rating: 4.7, price: 8000, available: 'Today', focus: 'Buffet & live counter' },
+          { name: 'Sangam Caterers', city: 'Dumaria', exp: '9 yrs', rating: 4.6, price: 10000, available: 'Today', focus: 'Small & large events' }
+        ]
+      },
+      {
+        icon: '👨‍🍳',
+        name: 'Cook',
+        hi: 'कुक / रसोइया',
+        desc: 'Home cook, party cook and daily cooking help for families and small functions.',
+        hiDesc: 'घर का कुक, पार्टी कुक और परिवार व छोटे कार्यक्रमों के लिए रोज़ाना खाना बनाने में सहायता।',
+        keywords: 'cook rasoiya chef home cook party cook daily cooking food kitchen',
+        providers: [
+          { name: 'Ramesh Cook', city: 'Gaya', exp: '8 yrs', rating: 4.8, price: 599, available: 'Today', focus: 'Daily home cooking' },
+          { name: 'Sita Devi', city: 'Bodh Gaya', exp: '6 yrs', rating: 4.9, price: 499, available: 'Today', focus: 'Veg home meals' },
+          { name: 'Pappu Maharaj', city: 'Gaya', exp: '10 yrs', rating: 4.8, price: 899, available: 'Tomorrow', focus: 'Party cook' },
+          { name: 'Lalita Devi', city: 'Sherghati', exp: '5 yrs', rating: 4.7, price: 449, available: 'Today', focus: 'Daily cook' },
+          { name: 'Kishan Kumar', city: 'Imamganj', exp: '7 yrs', rating: 4.6, price: 699, available: 'Today', focus: 'Small function cook' }
+        ]
+      },
+      {
+        icon: '🛋️',
+        name: 'Interior designer',
+        hi: 'इंटीरियर डिज़ाइनर',
+        desc: 'Home and shop interior design, modular kitchen, false ceiling, wardrobe and furniture planning.',
+        hiDesc: 'घर और दुकान का इंटीरियर डिज़ाइन, मॉड्यूलर किचन, फॉल्स सीलिंग, वार्डरोब और फर्नीचर प्लानिंग।',
+        keywords: 'interior designer design modular kitchen false ceiling wardrobe furniture home shop decor',
+        providers: [
+          { name: 'Aarav Interiors', city: 'Gaya', exp: '7 yrs', rating: 4.9, price: 1999, available: 'Today', focus: 'Home interior' },
+          { name: 'Dream Space Design', city: 'Bodh Gaya', exp: '6 yrs', rating: 4.8, price: 2499, available: 'Today', focus: 'Modular kitchen' },
+          { name: 'Kumar Interior Works', city: 'Gaya', exp: '9 yrs', rating: 4.8, price: 2999, available: 'Tomorrow', focus: 'False ceiling' },
+          { name: 'Shree Decor Studio', city: 'Sherghati', exp: '5 yrs', rating: 4.7, price: 1799, available: 'Today', focus: 'Shop interior' },
+          { name: 'Nirman Design Hub', city: 'Dumaria', exp: '6 yrs', rating: 4.6, price: 2199, available: 'Today', focus: 'Furniture planning' }
+        ]
+      },
+      {
+        icon: '🏗️',
+        name: 'Construction',
+        hi: 'कंस्ट्रक्शन',
+        desc: 'House construction, renovation, mason work, slab, boundary wall and civil contractor support.',
+        hiDesc: 'घर निर्माण, रेनोवेशन, राजमिस्त्री काम, स्लैब, बाउंड्री वॉल और सिविल ठेकेदार सहायता।',
+        keywords: 'construction contractor mason rajmistri civil house building renovation slab boundary wall repair',
+        providers: [
+          { name: 'Singh Construction', city: 'Gaya', exp: '12 yrs', rating: 4.9, price: 999, available: 'Today', focus: 'House construction' },
+          { name: 'Maa Kali Builders', city: 'Bodh Gaya', exp: '9 yrs', rating: 4.8, price: 899, available: 'Today', focus: 'Renovation' },
+          { name: 'Yadav Civil Works', city: 'Gaya', exp: '10 yrs', rating: 4.7, price: 799, available: 'Tomorrow', focus: 'Slab & boundary wall' },
+          { name: 'Ravi Rajmistri', city: 'Sherghati', exp: '8 yrs', rating: 4.8, price: 699, available: 'Today', focus: 'Mason work' },
+          { name: 'Prasad Contractors', city: 'Imamganj', exp: '11 yrs', rating: 4.6, price: 849, available: 'Today', focus: 'Civil contractor' }
+        ]
+      }
+    ];
+
+    let language = 'en';
+    const grid = document.getElementById('service-grid');
+    const search = document.getElementById('search');
+    const town = document.getElementById('town');
+    const radius = document.getElementById('radius');
+    const providerPanel = document.getElementById('provider-panel');
+    const providerTitle = document.getElementById('provider-title');
+    const listingArea = document.getElementById('listing-area');
+    const memberGrid = document.getElementById('member-grid');
+    const noResults = document.getElementById('no-results');
+
+    function makeWhatsAppUrl(message) {
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    function getDistanceBetweenTowns(fromTown, toTown) {
+      if (!townDistances[fromTown] || townDistances[fromTown][toTown] === undefined) {
+        return 9999;
+      }
+      return townDistances[fromTown][toTown];
+    }
+
+    function getNearbyProviders(serviceProviders, selectedTown, selectedRadius) {
+      const maxRadius = Number(selectedRadius) || 999;
+      return serviceProviders.filter(provider => getDistanceBetweenTowns(selectedTown, provider.city) <= maxRadius);
+    }
+
+    function applyLanguage() {
+      const dict = translations[language];
+      document.documentElement.lang = language === 'hi' ? 'hi-IN' : 'en';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+      document.getElementById('language-toggle').textContent = language === 'en' ? 'हिंदी' : 'English';
+      document.getElementById('language-toggle').setAttribute('aria-label', language === 'en' ? 'Switch to Hindi' : 'Switch to English');
+      document.getElementById('floating-wa').setAttribute('aria-label', language === 'en' ? 'WhatsApp Gaya Sewa' : 'गया सेवा को WhatsApp करें');
+      renderServices();
+      if (typeof renderPartnerOptions === 'function') renderPartnerOptions();
+      if (typeof renderCatBar === 'function') { renderCatBar(); renderPopular(); }
+    }
+
+    const tagLabels = {
+      pickup: { en: '🚚 Home pickup & delivery', hi: '🚚 होम पिकअप और डिलीवरी' },
+      urgent: { en: '⚡ Urgent (24 hrs)', hi: '⚡ अर्जेंट (24 घंटे)' }
+    };
+
+    function renderProviderTags(provider) {
+      if (!provider.tags || !provider.tags.length) return '';
+      return `<div class="meta-row">${provider.tags.map(tag => tagLabels[tag]
+        ? `<span class="pill tag-${tag}">${tagLabels[tag][language]}</span>` : '').join('')}</div>`;
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
+    }
+
+    function renderServices() {
+      const query = search.value.trim().toLowerCase();
+      const selectedTown = town.value;
+      const selectedRadius = Number(radius.value) || 999;
+      const matching = serviceData.filter(item => {
+        const haystack = `${item.name} ${item.hi} ${item.desc} ${item.hiDesc} ${item.keywords}`.toLowerCase();
+        return haystack.includes(query) && (activeCat === 'all' || catMap[item.name] === activeCat);
+      });
+
+      if (!matching.length) {
+        grid.innerHTML = '';
+        noResults.classList.add('show');
+        return;
+      }
+
+      noResults.classList.remove('show');
+      grid.innerHTML = matching.map((service) => {
+        const nearbyProviders = getNearbyProviders(service.providers, selectedTown, selectedRadius);
+        const serviceCount = nearbyProviders.length;
+        const displayProvider = nearbyProviders[0] || service.providers[0];
+        const serviceName = language === 'hi' ? service.hi : service.name;
+        return `
+          <article class="service-card">
+            <div class="top">
+              <span class="service-icon" aria-hidden="true">${service.icon}</span>
+              <span class="badge">${serviceCount} pros</span>
+            </div>
+            <h3>${serviceName}</h3>
+            <p>${language === 'hi' ? service.hiDesc : service.desc}</p>
+            <div class="service-meta">
+              <span>${displayProvider ? displayProvider.city : 'Nearby'}</span>
+              <span>${displayProvider ? '₹' + displayProvider.price + '+' : 'No nearby'}</span>
+            </div>
+            <button class="button button-primary service-button" type="button" data-service-index="${serviceData.findIndex(s => s.name === service.name)}">${language === 'hi' ? 'सेवा देखें' : 'View service'}</button>
+          </article>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('.service-button').forEach(button => {
+        button.addEventListener('click', () => {
+          const index = Number(button.dataset.serviceIndex);
+          openProviderList(index, selectedTown);
+        });
+      });
+    }
+
+    function openProviderList(serviceIndex, selectedTown) {
+      const service = serviceData[serviceIndex];
+      if (!service) return;
+
+      const selectedRadius = Number(radius.value) || 999;
+      const nearbyProviders = getNearbyProviders(service.providers, selectedTown, selectedRadius);
+      const title = language === 'hi'
+        ? `${service.hi} • आपके क्षेत्र में विशेषज्ञ`
+        : `${service.name} • nearby experts`;
+      providerTitle.textContent = title;
+
+      const radiusText = selectedRadius >= 999 ? (language === 'hi' ? 'किसी भी दूरी' : 'any distance') : `${selectedRadius} km`;
+      listingArea.textContent = language === 'hi'
+        ? `चुना हुआ क्षेत्र: ${selectedTown} • ${radiusText} तक`
+        : `Selected area: ${selectedTown} • within ${radiusText}`;
+
+      if (!nearbyProviders.length) {
+        memberGrid.innerHTML = `
+          <div class="no-results show">
+            ${language === 'hi'
+              ? `इस क्षेत्र में ${selectedTown} के ${radiusText} भीतर कोई ${service.hi} प्रोवाइडर उपलब्ध नहीं है। WhatsApp पर सीधे संपर्क करें।`
+              : `No ${service.name} providers are available within ${radiusText} of ${selectedTown}. Contact us directly on WhatsApp.`}
+          </div>
+        `;
+        providerPanel.classList.add('open');
+        return;
+      }
+
+      memberGrid.innerHTML = nearbyProviders.map(provider => {
+        const msg = language === 'hi'
+          ? `नमस्ते, मुझे ${selectedTown} में ${service.hi} सेवा चाहिए। ${provider.name} के बारे में उपलब्धता, समय और अंतिम कीमत बताइए।`
+          : `Hi, I need ${service.name} service in ${selectedTown}. Please confirm ${provider.name}'s availability, timing and final price.`;
+
+        return `
+          <article class="member-card">
+            <div class="member-top">
+              <span class="avatar" aria-hidden="true">${provider.name.trim().split(/\s+/).slice(0,2).map(w => w[0]).join('').toUpperCase()}</span>
+              <h3 class="member-name">${provider.name}</h3>
+              <span class="rating">★ ${provider.rating}</span>
+            </div>
+            <div class="meta-row">
+              <span class="pill">${provider.city}</span>
+              <span class="pill">${provider.exp}</span>
+              <span class="pill">${provider.available}</span>
+            </div>
+            <div class="meta-row">
+              <span class="pill">${provider.focus}</span>
+            </div>
+            ${renderProviderTags(provider)}
+            <div class="price-box">
+              <div class="amount">₹${provider.price}<small> / starting</small></div>
+            </div>
+            <a class="button button-primary" href="${makeWhatsAppUrl(msg)}" target="_blank" rel="noopener noreferrer">${language === 'hi' ? 'WhatsApp पर पूछें' : 'Ask on WhatsApp'}</a>
+          </article>
+        `;
+      }).join('');
+
+      providerPanel.classList.add('open');
+      providerPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+
+    // ---------- Partner form ----------
+    const partnerForm = document.getElementById('partner-form-el');
+    const pfEls = {
+      name: document.getElementById('pf-name'), phone: document.getElementById('pf-phone'),
+      service: document.getElementById('pf-service'), other: document.getElementById('pf-other'),
+      otherWrap: document.getElementById('pf-other-wrap'), town: document.getElementById('pf-town'),
+      exp: document.getElementById('pf-exp'), price: document.getElementById('pf-price'),
+      available: document.getElementById('pf-available'), focus: document.getElementById('pf-focus'),
+      note: document.getElementById('pf-note'), consent: document.getElementById('pf-consent'),
+      success: document.getElementById('partner-success')
+    };
+    const partnerTowns = ['Gaya', 'Bodh Gaya', 'Sherghati', 'Imamganj', 'Dumaria'];
+    const availabilityOptions = [
+      { value: 'Today', en: 'Today', hi: 'आज' },
+      { value: 'Tomorrow', en: 'Tomorrow', hi: 'कल' },
+      { value: 'Within 3 days', en: 'Within 3 days', hi: '3 दिन के अंदर' }
+    ];
+
+    function fillSelect(select, items, placeholder) {
+      const previous = select.value;
+      select.innerHTML = (placeholder ? `<option value="">${placeholder}</option>` : '') +
+        items.map(item => `<option value="${escapeHtml(item.value)}">${escapeHtml(item.label)}</option>`).join('');
+      if (previous) select.value = previous;
+    }
+
+    function renderPartnerOptions() {
+      const hi = language === 'hi';
+      fillSelect(pfEls.service,
+        serviceData.map(svc => ({ value: svc.name, label: hi ? svc.hi : svc.name }))
+          .concat([{ value: '__other', label: hi ? 'अन्य (मेरी सेवा सूची में नहीं है)' : 'Other (not in the list)' }]),
+        hi ? 'सेवा चुनें' : 'Select your service');
+      fillSelect(pfEls.town, partnerTowns.map(t => ({ value: t, label: t })).concat([{ value: '__other', label: hi ? 'अन्य शहर' : 'Other town' }]), hi ? 'शहर चुनें' : 'Select your town');
+      fillSelect(pfEls.available, availabilityOptions.map(o => ({ value: o.value, label: hi ? o.hi : o.en })));
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const key = el.dataset.i18nPh;
+        if (translations[language][key]) el.placeholder = translations[language][key];
+      });
+    }
+
+    function setFieldError(name, hasError) {
+      const wrap = partnerForm.querySelector(`[data-field="${name}"]`);
+      if (wrap) wrap.classList.toggle('invalid', hasError);
+    }
+
+    function validatePartnerForm() {
+      const phoneDigits = pfEls.phone.value.replace(/\D/g, '').replace(/^(91|0)(?=\d{10}$)/, '');
+      const needsOther = pfEls.service.value === '__other';
+      const checks = {
+        name: pfEls.name.value.trim().length >= 2,
+        phone: /^[6-9]\d{9}$/.test(phoneDigits),
+        service: !!pfEls.service.value,
+        otherService: !needsOther || pfEls.other.value.trim().length >= 2,
+        town: !!pfEls.town.value,
+        exp: pfEls.exp.value !== '' && Number(pfEls.exp.value) >= 0 && Number(pfEls.exp.value) <= 60,
+        price: Number(pfEls.price.value) > 0,
+        consent: pfEls.consent.checked
+      };
+      Object.keys(checks).forEach(key => setFieldError(key, !checks[key]));
+      const firstBad = Object.keys(checks).find(key => !checks[key]);
+      if (firstBad) {
+        const wrap = partnerForm.querySelector(`[data-field="${firstBad}"]`);
+        const control = wrap && wrap.querySelector('input, select');
+        if (control) control.focus();
+        return null;
+      }
+      return phoneDigits;
+    }
+
+    pfEls.service.addEventListener('change', () => {
+      pfEls.otherWrap.hidden = pfEls.service.value !== '__other';
+    });
+
+    partnerForm.addEventListener('submit', event => {
+      event.preventDefault();
+      pfEls.success.classList.remove('show');
+      const phoneDigits = validatePartnerForm();
+      if (!phoneDigits) return;
+
+      const serviceName = pfEls.service.value === '__other' ? pfEls.other.value.trim() : pfEls.service.value;
+      const townName = pfEls.town.value === '__other' ? 'Other town' : pfEls.town.value;
+      const extras = Array.from(partnerForm.querySelectorAll('input[name="extras"]:checked'))
+        .map(box => tagLabels[box.value].en.replace(/^\S+\s/, ''));
+      const lines = [
+        'NEW PARTNER REQUEST - Gaya Sewa',
+        `Name: ${pfEls.name.value.trim()}`,
+        `Phone: +91 ${phoneDigits}`,
+        `Service: ${serviceName}`,
+        `Town: ${townName}`,
+        `Experience: ${Number(pfEls.exp.value)} yrs`,
+        `Starting price: Rs ${Number(pfEls.price.value)}`,
+        `Availability: ${pfEls.available.value}`
+      ];
+      if (pfEls.focus.value.trim()) lines.push(`Best at: ${pfEls.focus.value.trim()}`);
+      if (extras.length) lines.push(`Extras: ${extras.join(', ')}`);
+      if (pfEls.note.value.trim()) lines.push(`Note: ${pfEls.note.value.trim()}`);
+      lines.push('I agree to verification call. I am sending 2 work photos in this chat.');
+
+      window.open(makeWhatsAppUrl(lines.join('\n')), '_blank', 'noopener');
+      pfEls.success.classList.add('show');
+    });
+
+    ['input', 'change'].forEach(evt => partnerForm.addEventListener(evt, e => {
+      const wrap = e.target.closest('.field');
+      if (wrap) wrap.classList.remove('invalid');
+    }));
+
+    renderPartnerOptions();
+
+
+    // ---------- Categories, popular tiles, hero search ----------
+    const catMap = {
+      'Electrician': 'home', 'Plumber': 'home', 'AC repair': 'home', 'Home cleaning': 'home', 'Carpenter': 'home',
+      'RO / Water purifier': 'home', 'Painter': 'home', 'Interior designer': 'home', 'Construction': 'home',
+      'Bridal mehndi': 'beauty', 'Women tailor': 'beauty', 'Men tailor': 'beauty',
+      'Tent house': 'events', 'Catering': 'events', 'Cook': 'events',
+      'Home tutor': 'more', 'Mobile / Laptop repair': 'more', 'Taxi / Driver': 'more'
+    };
+    const cats = [
+      { id: 'all', en: 'All services', hi: 'सभी सेवाएँ' }, { id: 'home', en: 'Home repair', hi: 'घर की मरम्मत' },
+      { id: 'beauty', en: 'Beauty & tailoring', hi: 'ब्यूटी और सिलाई' }, { id: 'events', en: 'Events & food', hi: 'शादी, इवेंट और खाना' },
+      { id: 'more', en: 'More', hi: 'अन्य' }
+    ];
+    let activeCat = 'all';
+    const catBar = document.getElementById('cat-bar');
+    const popularGrid = document.getElementById('popular-grid');
+    const popularNames = ['Electrician', 'Plumber', 'AC repair', 'Women tailor', 'Bridal mehndi', 'Tent house'];
+
+    function renderCatBar() {
+      catBar.innerHTML = cats.map(c => `<button type="button" class="cat-chip${c.id === activeCat ? ' active' : ''}" data-cat="${c.id}" aria-pressed="${c.id === activeCat}">${c[language]}</button>`).join('');
+    }
+    function renderPopular() {
+      popularGrid.innerHTML = popularNames.map(name => {
+        const i = serviceData.findIndex(x => x.name === name);
+        const svc = serviceData[i];
+        return `<button type="button" class="pop-tile" data-i="${i}"><span aria-hidden="true">${svc.icon}</span>${language === 'hi' ? svc.hi : svc.name}</button>`;
+      }).join('');
+    }
+    catBar.addEventListener('click', e => {
+      const btn = e.target.closest('[data-cat]');
+      if (!btn) return;
+      activeCat = btn.dataset.cat;
+      renderCatBar();
+      renderServices();
+    });
+    popularGrid.addEventListener('click', e => {
+      const btn = e.target.closest('.pop-tile');
+      if (btn) openProviderList(Number(btn.dataset.i), town.value);
+    });
+    const heroTown = document.getElementById('hero-town');
+    heroTown.addEventListener('change', () => { town.value = heroTown.value; renderServices(); });
+    town.addEventListener('change', () => { heroTown.value = town.value; });
+    document.getElementById('hero-form').addEventListener('submit', e => {
+      e.preventDefault();
+      search.value = document.getElementById('hero-search').value;
+      town.value = heroTown.value;
+      activeCat = 'all';
+      renderCatBar();
+      renderServices();
+      document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.getElementById('language-toggle').addEventListener('click', () => {
+      language = language === 'en' ? 'hi' : 'en';
+      applyLanguage();
+    });
+
+    search.addEventListener('input', renderServices);
+    town.addEventListener('change', () => {
+      renderServices();
+      const currentSelected = document.querySelector('.service-button');
+      if (currentSelected) {
+        openProviderList(Number(currentSelected.dataset.serviceIndex), town.value);
+      }
+    });
+    radius.addEventListener('change', () => {
+      renderServices();
+      const currentSelected = document.querySelector('.service-button');
+      if (currentSelected) {
+        openProviderList(Number(currentSelected.dataset.serviceIndex), town.value);
+      }
+    });
+
+    radius.value = '20';
+    applyLanguage();
+  </script>
+</body>
+</html>
